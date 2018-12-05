@@ -1,0 +1,84 @@
+﻿<Window x:Class="Notatnik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notatnik"
+        mc:Ignorable="d"
+        Title="Notatnik Osobisty" Height="400" Width="500"
+        Loaded="MainWindow_Loaded"
+        Style="{StaticResource WindowStyle}">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:MainCommands.Add" Executed="MyAdd" />
+        <CommandBinding Command="local:MainCommands.Delete" Executed="MyDelete" CanExecute="SelectedCanExecute" />
+        <CommandBinding Command="local:MainCommands.Edit" Executed="MyEdit" CanExecute="SelectedCanExecute" />
+        <CommandBinding Command="local:MainCommands.Preview" Executed="MyPreview" CanExecute="SelectedCanExecute" />
+        <CommandBinding Command="local:MainCommands.Favorite" CanExecute="SelectedCanExecute" />
+        <CommandBinding Command="local:MainCommands.ShowFavorites" Executed="MyShowFavorites" CanExecute="MyShowFavoritesCanExecute" />
+        <CommandBinding Command="local:MainCommands.Search" Executed="MySearch" CanExecute="MySearchCanExecute" />
+    </Window.CommandBindings>
+    <Border Style="{StaticResource MainBorderStyle}">
+        <Grid DataContext="{Binding ElementName=lbxData, Path=SelectedItem}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <ToolBar Grid.ColumnSpan="2" Style="{StaticResource ToolBarStyle}">
+                <Button ToolTip="Dodaj" Command="local:MainCommands.Add" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource PlusIcon}" />
+                </Button>
+                <Button ToolTip="Usuń" Command="local:MainCommands.Delete" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource MinusIcon}" />
+                </Button>
+                <Separator />
+                <Button ToolTip="Edytuj" Command="local:MainCommands.Edit" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource PencilIcon}" />
+                </Button>
+                <Button ToolTip="Podgląd" Command="local:MainCommands.Preview" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource PreviewIcon}" />
+                </Button>
+                <Separator />
+                <ToggleButton Name="btnWyszukaj"  ToolTip="Wyszukaj" Command="local:MainCommands.Search" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource MagnifierIcon}" />
+                </ToggleButton>
+                <ToggleButton Name="btnWyroznij" ToolTip="Wyróżnij" IsChecked="{Binding Path=Wyroznienie, Mode=TwoWay}" Command="local:MainCommands.Favorite" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource StarIcon}" />
+                </ToggleButton>
+            </ToolBar>
+            <ListBox Name="lbxData" Grid.Row="1" Margin="3 5 5 3" ItemTemplate="{StaticResource NotatkaTemplate}" ItemContainerStyle="{DynamicResource ItemStyle}" HorizontalContentAlignment="Stretch" Style="{StaticResource ListBoxStyle}">
+                <ListBox.GroupStyle>
+                    <GroupStyle HeaderTemplate="{StaticResource GroupTemplate}" />
+                </ListBox.GroupStyle>
+            </ListBox>
+            <ToolBarTray Orientation="Vertical" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="0 3 0 0" Background="Transparent">
+                <ToolBar Padding="3" Background="#FFDBDEE3" ToolBarTray.IsLocked="True">
+                    <ToggleButton Name="btnWyroznione" ToolTip="Pokaż wyróżnione" Command="local:MainCommands.ShowFavorites" HorizontalAlignment="Stretch" Padding="1" Margin="3" Style="{StaticResource AnimatedButton}">Pokaż wyróżnione</ToggleButton>
+                    <Separator Margin="5" />
+                    <ComboBox Name="cbxSortuj"  ToolTip="Sortuj" MinWidth="80" HorizontalAlignment="Stretch" Padding="1" Margin="3">
+                        <ComboBoxItem Name="cbiClearSort"  IsSelected="True" Selected="Sort">Brak sortowania</ComboBoxItem>
+                        <ComboBoxItem Name="cbiSortByCreationDate" Selected="Sort">Sortuj wg dat utworzenia</ComboBoxItem>
+                        <ComboBoxItem Name="cbiSortByModifyDate" Selected="Sort">Sortuj wg dat modyfikacji</ComboBoxItem>
+                        <ComboBoxItem Name="cbiSortByTitle" Selected="Sort">Sortuj wg tytułów</ComboBoxItem>
+                    </ComboBox>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton IsChecked="True" IsEnabled="False" Checked="Sort"  Name="rbRosnaco" ToolTip="Rosnąco" Margin="5">Rosnąco</RadioButton>
+                        <RadioButton IsEnabled="False" Checked="Sort"  Name="rbMalejaco" ToolTip="Malejąco" Margin="5">Malejąco</RadioButton>
+                    </StackPanel>
+                    <Separator Margin="5" />
+                    <ComboBox ToolTip="Grupuj" MinWidth="80" HorizontalAlignment="Stretch" Padding="1" Margin="3">
+                        <ComboBoxItem Name="cbiClearGroup" IsSelected="True" Selected="Group">Brak grupowania</ComboBoxItem>
+                        <ComboBoxItem Name="cbiGroupByAuthor" Selected="Group">Grupuj wg autora</ComboBoxItem>
+                        <ComboBoxItem Name="cbiGroupByTitle" Selected="Group">Grupuj wg pierwszej litery tytułu</ComboBoxItem>
+                        <ComboBoxItem Name="cbiGroupByCathegory" Selected="Group">Grupuj wg kategorii</ComboBoxItem>
+                    </ComboBox>
+                </ToolBar>
+            </ToolBarTray>
+            <ContentControl Grid.Row="2" ContentTemplate="{StaticResource SzczegolyTemplate}" HorizontalAlignment="Center" />
+        </Grid>
+    </Border>
+</Window>

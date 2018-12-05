@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DrawingImage xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <DrawingImage.Drawing>
+        <GeometryDrawing Brush="#FF8DD35F">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="m 319.50591 -226.18477 c -10.07541 0 -18.15625 8.08084 -18.15625 18.15625 l 0 43.6875 -42.84375 0 c -10.0754 0 -18.1875 8.11209 -18.1875 18.1875 l 0 55.562495 c 0 10.07541 8.1121 18.1875 18.1875 18.1875 l 42.84375 0 0 43.1875 c 0 10.07541 8.08084 18.1875 18.15625 18.1875 l 55.5625 0 c 10.07541 0 18.1875 -8.11209 18.1875 -18.1875 l 0 -43.1875 44.03125 0 c 10.0754 0 18.1875 -8.11209 18.1875 -18.1875 l 0 -55.562495 c 0 -10.07541 -8.1121 -18.1875 -18.1875 -18.1875 l -44.03125 0 0 -43.6875 c 0 -10.07541 -8.11209 -18.15625 -18.1875 -18.15625 l -55.5625 0 z" FillRule="nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+    </DrawingImage.Drawing>
+</DrawingImage>

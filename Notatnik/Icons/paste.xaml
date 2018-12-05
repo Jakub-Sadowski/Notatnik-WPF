@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DrawingImage xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <DrawingImage.Drawing>
+        <DrawingGroup>
+            <GeometryDrawing Brush="#FFFFDD55">
+                <GeometryDrawing.Geometry>
+                    <PathGeometry Figures="m 1330.1766 -139.45355 199.4735 0 c 11.2538 0 20.3137 9.05989 20.3137 20.31365 l 0 220.00851 c 0 11.25376 -9.0599 20.31364 -20.3137 20.31364 l -199.4735 0 c -11.2538 0 -20.3137 -9.05988 -20.3137 -20.31364 l 0 -220.00851 c 0 -11.25376 9.0599 -20.31365 20.3137 -20.31365 z" FillRule="nonzero" />
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+            <GeometryDrawing Brush="#FFB7C4C8">
+                <GeometryDrawing.Geometry>
+                    <PathGeometry Figures="m 1417.0281 -189.59458 c -9.1886 0 -16.586 7.3973 -16.586 16.5859 l 0 10.2676 -27.6425 0 c -9.1886 0 -16.586 7.3974 -16.586 16.586 l 0 9.4765 c 0 9.1886 7.3974 16.586 16.586 16.586 l 113.7324 0 c 9.1886 0 16.5859 -7.3974 16.5859 -16.586 l 0 -9.4765 c 0 -9.1886 -7.3973 -16.586 -16.5859 -16.586 l -29.2227 0 0 -10.2676 c 0 -9.1886 -7.3973 -16.5859 -16.5859 -16.5859 l -23.6953 0 z" FillRule="nonzero" />
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+            <GeometryDrawing Brush="#FF8DD35F">
+                <GeometryDrawing.Geometry>
+                    <PathGeometry Figures="m 1499.2993 -83.921503 -111.9604 0 c -9.2702 0 -16.7339 7.46365 -16.7339 16.7337 l 0 182.748103 c 0 9.27005 7.4637 16.73371 16.7339 16.73371 l 159.7466 0 c 9.2699 0 16.7335 -7.46366 16.7335 -16.73371 l 0 -134.990933 z" FillRule="nonzero" />
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+            <GeometryDrawing Brush="#FFC6E9AF">
+                <GeometryDrawing.Geometry>
+                    <PathGeometry Figures="m 1563.819 -19.430633 -64.5197 -64.49087 0 47.75718 c 0 9.27003 7.4636 16.73369 16.7336 16.73369 z" FillRule="nonzero" />
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingGroup>
+    </DrawingImage.Drawing>
+</DrawingImage>

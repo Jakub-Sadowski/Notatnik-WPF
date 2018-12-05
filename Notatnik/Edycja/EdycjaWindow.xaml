@@ -1,0 +1,101 @@
+﻿<Window x:Class="Notatnik.EdycjaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notatnik"
+        mc:Ignorable="d"
+        Title="Edytuj" Height="400" Width="400"  Loaded="EdycjaWindow_Loaded" Closing="EdycjaWindow_Closing" Style="{StaticResource WindowStyle}">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:EdycjaCommands.Save" Executed="MySave" CanExecute="EditedCanExecute" />
+        <CommandBinding Command="local:EdycjaCommands.Discard" Executed="MyDiscard" CanExecute="EditedCanExecute" />
+        <CommandBinding Command="local:EdycjaCommands.Import" Executed="MyImport" />
+        <CommandBinding Command="local:EdycjaCommands.Export" Executed="MyExport" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="local:EdycjaCommands.Save" Key="S" Modifiers="Ctrl" />
+        <KeyBinding Command="local:EdycjaCommands.Discard" Key="D" Modifiers="Ctrl" />
+        <KeyBinding Command="local:EdycjaCommands.Import" Key="I" Modifiers="Ctrl" />
+        <KeyBinding Command="local:EdycjaCommands.Export" Key="E" Modifiers="Ctrl" />
+    </Window.InputBindings>
+    <Border Style="{StaticResource MainBorderStyle}">
+        <Grid Name="gridMain" DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=AktywnaNotatka, Mode=TwoWay}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ToolBar Grid.ColumnSpan="2" Style="{StaticResource ToolBarStyle}">
+                <Button ToolTip="Zapisz" Command="local:EdycjaCommands.Save" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource FloppydiskIcon}" />
+                </Button>
+                <Button ToolTip="Odrzuć" Command="local:EdycjaCommands.Discard" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource CrossIcon}" />
+                </Button>
+                <Separator />
+                <Button ToolTip="Cofnij" Command="ApplicationCommands.Undo" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource UndoIcon}" />
+                </Button>
+                <Button ToolTip="Przywróć" Command="ApplicationCommands.Redo" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource RedoIcon}" />
+                </Button>
+                <Separator />
+                <Button ToolTip="Kopiuj" Command="ApplicationCommands.Copy" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource CopyIcon}" />
+                </Button>
+                <Button ToolTip="Wklej" Command="ApplicationCommands.Paste" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource PasteIcon}" />
+                </Button>
+                <Separator />
+                <Button ToolTip="Wczytaj" Command="local:EdycjaCommands.Import" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource ImportIcon}" />
+                </Button>
+                <Button ToolTip="Eksportuj" Command="local:EdycjaCommands.Export" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
+                    <ContentControl ContentTemplate="{StaticResource ExportIcon}" />
+                </Button>
+            </ToolBar>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="5">Tytuł</TextBlock>
+                <TextBox Name="tbxTytul" Grid.Column="1" Margin="5" Text="{Binding Path=Tytul, Mode=TwoWay, UpdateSourceTrigger=Explicit}" TextChanged="SetEdit" Style="{StaticResource TextBoxStyle}" />
+                <TextBlock Margin="5" Grid.Row="1">Autor</TextBlock>
+                <TextBox Name="tbxAutor" Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Path=Autor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" TextChanged="SetEdit" Style="{StaticResource TextBoxStyle}" />
+                <TextBlock Margin="5" Grid.Row="2">Kategoria</TextBlock>
+                <ComboBox Name="cbxKategoria" Margin="5" Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Path=Kategoria, Mode=TwoWay, UpdateSourceTrigger=Explicit}" SelectionChanged="SetEdit" Style="{StaticResource ComboBoxStyle}" />
+            </Grid>
+            <Separator Grid.Row="2" BorderThickness="1" BorderBrush="#FFDBDEE3" Margin="0 0 3 0" />
+            <RichTextBox Name="rtbTekst" Margin="5" Grid.Row="3" TextChanged="SetEdit" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Visible" SelectionChanged="UpdateControlState" Style="{StaticResource RichTextBoxStyle}" />
+            <ToolBarTray Grid.RowSpan="3" Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="0 3 0 0" Background="Transparent">
+                <ToolBar Padding="3" Background="#FFDBDEE3" Foreground="Black" ToolBarTray.IsLocked="True">
+                    <ToggleButton Name="btnBold" ToolTip="Pogrubienie" Command="EditingCommands.ToggleBold" Height="35" Width="35" Margin="3" Style="{StaticResource AnimatedButton}">
+                        <ContentControl ContentTemplate="{StaticResource BoldIcon}" />
+                    </ToggleButton>
+                    <ToggleButton Name="btnItalic" ToolTip="Kursywa" Command="EditingCommands.ToggleItalic" Height="35" Width="35" Margin="3 0 3 3" Style="{StaticResource AnimatedButton}">
+                        <ContentControl ContentTemplate="{StaticResource ItalicIcon}" />
+                    </ToggleButton>
+                    <ToggleButton Name="btnUnderline" ToolTip="Podkreśl" Command="EditingCommands.ToggleUnderline" Height="35" Width="35" Margin="3 0 3 3" Style="{StaticResource AnimatedButton}">
+                        <ContentControl ContentTemplate="{StaticResource UnderlineIcon}" />
+                    </ToggleButton>
+                    <Separator />
+                    <TextBlock HorizontalAlignment="Center">Kolor:</TextBlock>
+                    <ComboBox Name="cbxKolor" ToolTip="Kolor" HorizontalAlignment="Stretch" SelectionChanged="ChangeColor" />
+                    <TextBlock HorizontalAlignment="Center">Rozmiar:</TextBlock>
+                    <ComboBox Name="cbxRozmiar" ToolTip="Rozmiar" HorizontalAlignment="Stretch" SelectionChanged="ChangeSize" />
+                </ToolBar>
+            </ToolBarTray>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Notatnik"
+                    xmlns:effect="clr-namespace:GrayscaleEffect;assembly=GrayscaleEffect">
+    <local:XamlToImageConverter x:Key="XamlToImageConverter" />
+    <Style x:Key="Grayscale" TargetType="Image">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Control}}" Value="False">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <effect:GrayscaleEffect x:Name="GrayscaleEffect" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <DataTemplate x:Key="StarIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/star.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="MagnifierIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/magnifier.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="PreviewIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/preview.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="PencilIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/pencil.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="MinusIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/minus.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="PlusIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/plus.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="FloppydiskIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/floppydisk.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="CrossIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/cross.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="UndoIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/undo.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="RedoIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/redo.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="ImportIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/import.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="ExportIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/export.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="CopyIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/copy.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="PasteIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/paste.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="BoldIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/bold.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="ItalicIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/italic.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="UnderlineIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/underline.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+    <DataTemplate x:Key="PrinterIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/printer.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
+</ResourceDictionary>
