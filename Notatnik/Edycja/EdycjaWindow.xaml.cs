@@ -13,7 +13,7 @@ namespace Notatnik
 {
     public partial class EdycjaWindow : Window
     {
-        public Notatka AktywnaNotatka { get; set; }
+        public INotatka AktywnaNotatka { get; set; }
         private FlowDocument tekstKopia = new FlowDocument();
         private bool edited, discarded;
         private Kategorie kategorie;
@@ -121,7 +121,7 @@ namespace Notatnik
             {
                 FileStream fileStream = File.Open(dlg.FileName, FileMode.Open);
 
-                Notatka wczytanaNotatka = (Notatka)XamlReader.Load(fileStream);
+                INotatka wczytanaNotatka = (INotatka)XamlReader.Load(fileStream);
                 tbxAutor.Text = wczytanaNotatka.Autor;
                 tbxTytul.Text = wczytanaNotatka.Tytul;
                 cbxKategoria.SelectedItem = wczytanaNotatka.Kategoria;

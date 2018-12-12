@@ -6,12 +6,11 @@ using System.Windows.Media;
 
 namespace Notatnik
 {
-    public class Notatka
+    public class Notatka : INotatka
     {
         public FlowDocument Tekst { get; set; }
         public string Tytul { get; set; }
         public string Autor { get; set; }
-        //public string Kategoria { get; set; }
         public Kategoria Kategoria { get; set; }
 
         public DateTime DataUtworzenia { get; set; }
@@ -22,6 +21,7 @@ namespace Notatnik
 
         public Notatka(Kategorie kategorie)
         {
+            System.Diagnostics.Debug.WriteLine("utworzona została prawdziwa instancja notatki");
             Wyroznienie = false;
             DataUtworzenia = DateTime.Now;
             DataModyfikacji = DateTime.Now;

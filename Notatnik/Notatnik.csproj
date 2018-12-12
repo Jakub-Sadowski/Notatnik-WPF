@@ -109,13 +109,14 @@
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\XamlToImageConverter.cs" />
     <Compile Include="HistoriaEdycji.cs" />
+    <Compile Include="INotatka.cs" />
     <Compile Include="Kategoria.cs" />
     <Compile Include="KategoriaDomyslna.cs" />
     <Compile Include="KategoriaFinanse.cs" />
     <Compile Include="KategoriaOsobiste.cs" />
     <Compile Include="KategoriaPlany.cs" />
     <Compile Include="KategoriaPraca.cs" />
-    <Compile Include="NotatkiLateInit.cs" />
+    <Compile Include="NotatkaLateInit.cs" />
     <Compile Include="Szukaj\Filtr.cs" />
     <Compile Include="Converters\NoTitleConverter.cs" />
     <Compile Include="Main\MainCommands.cs" />

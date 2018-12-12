@@ -1,8 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using MS.Internal.Data;
 
 namespace Notatnik
 {
@@ -13,7 +17,8 @@ namespace Notatnik
             get
             {
                 if (lbxData == null) return null;
-                else return (ListCollectionView)CollectionViewSource.GetDefaultView(lbxData.ItemsSource);
+                else
+                    return (ListCollectionView)CollectionViewSource.GetDefaultView(lbxData.ItemsSource);
             }
         }
 
@@ -119,12 +124,12 @@ namespace Notatnik
         private void MyAdd(object sender, ExecutedRoutedEventArgs e)
         {
             EdycjaWindow noweOkno = new EdycjaWindow(kategorie);
-            Notatka nowaNotatka = new Notatka(kategorie);
+            INotatka nowaNotatka = new NotatkaLateInit(kategorie);
             data.Notatki.Add(nowaNotatka);
 
             lbxData.SelectedIndex = lbxData.Items.Count - 1;
-            noweOkno.AktywnaNotatka = nowaNotatka;
-            noweOkno.ShowDialog();
+            //noweOkno.AktywnaNotatka = nowaNotatka;
+            //noweOkno.ShowDialog();
         }
 
         private void MyDelete(object sender, ExecutedRoutedEventArgs e)
@@ -141,7 +146,7 @@ namespace Notatnik
         {
             oknoEdycji = new EdycjaWindow(kategorie);
             oknoEdycji.Owner = this;
-            oknoEdycji.AktywnaNotatka = lbxData.SelectedItem as Notatka;
+            oknoEdycji.AktywnaNotatka = lbxData.SelectedItem as INotatka;
             oknoEdycji.Show();
         }
 
@@ -149,7 +154,7 @@ namespace Notatnik
         {
             oknoPodgladu = new PodgladWindow();
             oknoPodgladu.Owner = this;
-            oknoPodgladu.AktywnaNotatka = lbxData.SelectedItem as Notatka;
+            oknoPodgladu.AktywnaNotatka = lbxData.SelectedItem as INotatka;
             oknoPodgladu.Show();
         }
 
@@ -159,7 +164,7 @@ namespace Notatnik
             {
                 View.Filter = delegate (object item)
                 {
-                    Notatka notatka = item as Notatka;
+                    INotatka notatka = item as INotatka;
                     return notatka.Wyroznienie;
                 };
             }
@@ -186,7 +191,7 @@ namespace Notatnik
                 {
                     View.Filter = delegate (object item)
                     {
-                        Notatka notatka = item as Notatka;
+                        INotatka notatka = item as INotatka;
                         return (nowyFiltr.CzyPasuje(notatka));
                     };
 

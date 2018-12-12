@@ -84,7 +84,7 @@ namespace Notatnik
             Wyroznienie = true;
         }
 
-        public bool CzyPasuje(Notatka notatka)
+        public bool CzyPasuje(INotatka notatka)
         {
             if (TytulWarunek)
             {

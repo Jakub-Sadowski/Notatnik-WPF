@@ -15,7 +15,7 @@ namespace Notatnik
         public Kategoria Kategoria { get; set; }
         public DateTime DataModyfikacji { get; set; }
 
-        public WpisHistorii(Notatka notatka)
+        public WpisHistorii(INotatka notatka)
         {
             Tekst = notatka.Tekst;
             Tytul = notatka.Tytul;

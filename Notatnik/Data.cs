@@ -10,12 +10,12 @@ namespace Notatnik
 {
     public class Data
     {
-        private NotatkiLateInit data;
+        private Collection<INotatka> data;
         private Data()
         {
-            data = new NotatkiLateInit(new ObservableCollection<Notatka>());
+            data = new ObservableCollection<INotatka>();
 
-            Notatka notatka1 = new Notatka(Kategorie.Instance), notatka2 = new Notatka(Kategorie.Instance);
+            INotatka notatka1 = new NotatkaLateInit(Kategorie.Instance), notatka2 = new NotatkaLateInit(Kategorie.Instance);
             notatka1.Tytul = "Nowa notatka 1";
             notatka1.Autor = "Autor1";
             notatka2.Tytul = "Nowa notatka 2";
@@ -37,7 +37,7 @@ namespace Notatnik
             }
         }
 
-        public NotatkiLateInit Notatki
+        public Collection<INotatka> Notatki
         {
             get { return data; }
         }

@@ -8,7 +8,7 @@ namespace Notatnik
 {
     public partial class PodgladWindow : Window
     {
-        public Notatka AktywnaNotatka { get; set; }
+        public INotatka AktywnaNotatka { get; set; }
 
         public PodgladWindow()
         {
