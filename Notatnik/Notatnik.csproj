@@ -124,6 +124,19 @@
     <Compile Include="Converters\SelectionToVisibilityConverter.cs" />
     <Compile Include="Notatka.cs" />
     <Compile Include="Kategorie.cs" />
+    <Compile Include="Szukaj\FiltrAutor.cs" />
+    <Compile Include="Szukaj\FiltrDataModyfikacjiDo.cs" />
+    <Compile Include="Szukaj\FiltrDataModyfikacjiOd.cs" />
+    <Compile Include="Szukaj\FiltrDataUtworzeniaDo.cs" />
+    <Compile Include="Szukaj\FiltrDataUtworzeniaOd.cs" />
+    <Compile Include="Szukaj\FiltrDecorator.cs" />
+    <Compile Include="Szukaj\FiltrKategoria.cs" />
+    <Compile Include="Szukaj\FiltrSlowaKluczoweJakiekolwiek.cs" />
+    <Compile Include="Szukaj\FiltrSlowaKluczoweWszystkie.cs" />
+    <Compile Include="Szukaj\FiltrTytulDokladny.cs" />
+    <Compile Include="Szukaj\FiltrTytulZawiera.cs" />
+    <Compile Include="Szukaj\FiltrWyroznienie.cs" />
+    <Compile Include="Szukaj\IFiltr.cs" />
     <Compile Include="Szukaj\SzukajCommands.cs" />
     <Compile Include="Szukaj\SzukajWindow.xaml.cs">
       <DependentUpon>SzukajWindow.xaml</DependentUpon>

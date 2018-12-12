@@ -5,7 +5,7 @@ using System.Windows.Documents;
 
 namespace Notatnik
 {
-    public class Filtr : IDataErrorInfo
+    public class Filtr : IDataErrorInfo, IFiltr
     {
         public bool TytulWarunek { get; set; }
         public bool TytulDokladny { get; set; }

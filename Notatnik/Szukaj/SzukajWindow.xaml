@@ -19,54 +19,54 @@
             <GroupBox Margin="5" HorizontalAlignment="Stretch" Style="{StaticResource GroupBoxStyle}">
                 <GroupBox.Header>
                     <Border Style="{StaticResource CheckBoxBorderStyle}">
-                        <CheckBox IsChecked="{Binding Path=TytulWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}">Tytuł</CheckBox>
+                        <CheckBox IsChecked="{Binding TytulWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" Content="Tytuł"/>
                     </Border>
                 </GroupBox.Header>
-                <StackPanel IsEnabled="{Binding Path=TytulWarunek}">
-                    <TextBox Name="tbxTytul" Text="{Binding Path=Tytul, Mode=TwoWay}" Margin="5" />
+                <StackPanel IsEnabled="{Binding TytulWarunek}">
+                    <TextBox x:Name="tbxTytul" Text="{Binding Tytul, Mode=TwoWay}" Margin="5" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <RadioButton IsChecked="{Binding Path=TytulDokladny, Mode=TwoWay}" Margin="5">Dokładny</RadioButton>
-                        <RadioButton IsChecked="{Binding Path=TytulZawiera, Mode=TwoWay}" Margin="5">Zawiera</RadioButton>
+                        <RadioButton IsChecked="{Binding TytulDokladny, Mode=TwoWay}" Margin="5" Content="Dokładny"/>
+                        <RadioButton IsChecked="{Binding TytulZawiera, Mode=TwoWay}" Margin="5" Content="Zawiera"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
             <GroupBox Margin="5" Style="{StaticResource GroupBoxStyle}">
                 <GroupBox.Header>
                     <Border Style="{StaticResource CheckBoxBorderStyle}">
-                        <CheckBox IsChecked="{Binding Path=AutorWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}">Autor</CheckBox>
+                        <CheckBox IsChecked="{Binding AutorWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" Content="Autor"/>
                     </Border>
                 </GroupBox.Header>
-                <TextBox Name="tbxAutor" Text="{Binding Path=Autor, Mode=TwoWay}" IsEnabled="{Binding Path=AutorWarunek}" Margin="5" />
+                <TextBox x:Name="tbxAutor" Text="{Binding Autor, Mode=TwoWay}" IsEnabled="{Binding AutorWarunek}" Margin="5" />
             </GroupBox>
             <GroupBox Margin="5" Style="{StaticResource GroupBoxStyle}">
                 <GroupBox.Header>
                     <Border Style="{StaticResource CheckBoxBorderStyle}">
-                        <CheckBox IsChecked="{Binding Path=SlowaKluczoweWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}">Słowa kluczowe</CheckBox>
+                        <CheckBox IsChecked="{Binding SlowaKluczoweWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" Content="Słowa kluczowe"/>
                     </Border>
                 </GroupBox.Header>
-                <StackPanel IsEnabled="{Binding Path=SlowaKluczoweWarunek}">
-                    <TextBox Name="tbxSlowaKluczowe" Text="{Binding Path=SlowaKluczowe, Mode=TwoWay}" Margin="5" MinHeight="50" TextWrapping="Wrap" />
+                <StackPanel IsEnabled="{Binding SlowaKluczoweWarunek}">
+                    <TextBox x:Name="tbxSlowaKluczowe" Text="{Binding SlowaKluczowe, Mode=TwoWay}" Margin="5" MinHeight="50" TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <RadioButton IsChecked="{Binding Path=SlowaKluczoweWszystkie, Mode=TwoWay}" Margin="5">Wszystkie</RadioButton>
-                        <RadioButton IsChecked="{Binding Path=SlowaKluczoweJakiekolwiek, Mode=TwoWay}" Margin="5">Jakiekolwiek</RadioButton>
+                        <RadioButton IsChecked="{Binding SlowaKluczoweWszystkie, Mode=TwoWay}" Margin="5" Content="Wszystkie"/>
+                        <RadioButton IsChecked="{Binding SlowaKluczoweJakiekolwiek, Mode=TwoWay}" Margin="5" Content="Jakiekolwiek"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
             <GroupBox Margin="5" Style="{StaticResource GroupBoxStyle}">
                 <GroupBox.Header>
                     <Border Style="{StaticResource CheckBoxBorderStyle}">
-                        <CheckBox IsChecked="{Binding Path=KategoriaWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}">Kategoria</CheckBox>
+                        <CheckBox IsChecked="{Binding KategoriaWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" Content="Kategoria"/>
                     </Border>
                 </GroupBox.Header>
-                <ComboBox IsEnabled="{Binding Path=KategoriaWarunek}" SelectedItem="{Binding Path=Kategoria}" Name="cbxKategoria" Margin="5" Style="{StaticResource ComboBoxStyle}" />
+                <ComboBox IsEnabled="{Binding KategoriaWarunek}" SelectedItem="{Binding Kategoria}" x:Name="cbxKategoria" Margin="5" Style="{StaticResource ComboBoxStyle}" />
             </GroupBox>
             <GroupBox Margin="5" Style="{StaticResource GroupBoxStyle}">
                 <GroupBox.Header>
                     <Border Style="{StaticResource CheckBoxBorderStyle}">
-                        <CheckBox IsChecked="{Binding Path=DataUtworzeniaWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}">Data utworzenia</CheckBox>
+                        <CheckBox IsChecked="{Binding DataUtworzeniaWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" Content="Data utworzenia"/>
                     </Border>
                 </GroupBox.Header>
-                <Grid IsEnabled="{Binding Path=DataUtworzeniaWarunek}">
+                <Grid IsEnabled="{Binding DataUtworzeniaWarunek}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="*" />
@@ -75,8 +75,8 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <CheckBox IsChecked="{Binding Path=DataUtworzeniaOdWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center">Od:</CheckBox>
-                    <DatePicker IsEnabled="{Binding Path=DataUtworzeniaOdWarunek}" Name="dpDataUtworzeniaOd" Margin="5" Grid.Column="1">
+                    <CheckBox IsChecked="{Binding DataUtworzeniaOdWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center" Content="Od:"/>
+                    <DatePicker IsEnabled="{Binding DataUtworzeniaOdWarunek}" x:Name="dpDataUtworzeniaOd" Margin="5" Grid.Column="1">
                         <DatePicker.SelectedDate>
                             <Binding Path="DataUtworzeniaOd" NotifyOnValidationError="True">
                                 <Binding.ValidationRules>
@@ -85,8 +85,8 @@
                             </Binding>
                         </DatePicker.SelectedDate>
                     </DatePicker>
-                    <CheckBox IsChecked="{Binding Path=DataUtworzeniaDoWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center" Grid.Row="1">Do:</CheckBox>
-                    <DatePicker IsEnabled="{Binding Path=DataUtworzeniaDoWarunek}" Name="dpDataUtworzeniaDo" Margin="5" Grid.Row="1" Grid.Column="1">
+                    <CheckBox IsChecked="{Binding DataUtworzeniaDoWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center" Grid.Row="1" Content="Do:"/>
+                    <DatePicker IsEnabled="{Binding DataUtworzeniaDoWarunek}" x:Name="dpDataUtworzeniaDo" Margin="5" Grid.Row="1" Grid.Column="1">
                         <DatePicker.SelectedDate>
                             <Binding Path="DataUtworzeniaDo" NotifyOnValidationError="True">
                                 <Binding.ValidationRules>
@@ -100,10 +100,10 @@
             <GroupBox Margin="5" Style="{StaticResource GroupBoxStyle}">
                 <GroupBox.Header>
                     <Border Style="{StaticResource CheckBoxBorderStyle}">
-                        <CheckBox IsChecked="{Binding Path=DataModyfikacjiWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}">Data modyfikacji</CheckBox>
+                        <CheckBox IsChecked="{Binding DataModyfikacjiWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" Content="Data modyfikacji"/>
                     </Border>
                 </GroupBox.Header>
-                <Grid IsEnabled="{Binding Path=DataModyfikacjiWarunek}">
+                <Grid IsEnabled="{Binding DataModyfikacjiWarunek}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
                         <ColumnDefinition Width="*" />
@@ -112,8 +112,8 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <CheckBox IsChecked="{Binding Path=DataModyfikacjiOdWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center">Od:</CheckBox>
-                    <DatePicker IsEnabled="{Binding Path=DataModyfikacjiOdWarunek}" Name="dpDataModyfikacjiOd" Margin="5" Grid.Column="1">
+                    <CheckBox IsChecked="{Binding DataModyfikacjiOdWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center" Content="Od:"/>
+                    <DatePicker IsEnabled="{Binding DataModyfikacjiOdWarunek}" x:Name="dpDataModyfikacjiOd" Margin="5" Grid.Column="1">
                         <DatePicker.SelectedDate>
                             <Binding Path="DataModyfikacjiOd" NotifyOnValidationError="True">
                                 <Binding.ValidationRules>
@@ -122,8 +122,8 @@
                             </Binding>
                         </DatePicker.SelectedDate>
                     </DatePicker>
-                    <CheckBox IsChecked="{Binding Path=DataModyfikacjiDoWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center" Grid.Row="1">Do:</CheckBox>
-                    <DatePicker IsEnabled="{Binding Path=DataModyfikacjiDoWarunek}" Name="dpDataModyfikacjiDo" Margin="5" Grid.Row="1" Grid.Column="1">
+                    <CheckBox IsChecked="{Binding DataModyfikacjiDoWarunek, Mode=TwoWay}" Margin="5" VerticalAlignment="Center" Grid.Row="1" Content="Do:"/>
+                    <DatePicker IsEnabled="{Binding DataModyfikacjiDoWarunek}" x:Name="dpDataModyfikacjiDo" Margin="5" Grid.Row="1" Grid.Column="1">
                         <DatePicker.SelectedDate>
                             <Binding Path="DataModyfikacjiDo" NotifyOnValidationError="True">
                                 <Binding.ValidationRules>
@@ -137,12 +137,12 @@
             <GroupBox Margin="5" Style="{StaticResource GroupBoxStyle}">
                 <GroupBox.Header>
                     <Border Style="{StaticResource CheckBoxBorderStyle}">
-                        <CheckBox IsChecked="{Binding Path=WyroznienieWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}">Wyróżnienie</CheckBox>
+                        <CheckBox IsChecked="{Binding WyroznienieWarunek, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" Content="Wyróżnienie"/>
                     </Border>
                 </GroupBox.Header>
-                <StackPanel IsEnabled="{Binding Path=WyroznienieWarunek}" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <RadioButton IsChecked="{Binding Path=Wyroznienie, Mode=TwoWay}" Margin="5">Tak</RadioButton>
-                    <RadioButton Margin="5">Nie</RadioButton>
+                <StackPanel IsEnabled="{Binding WyroznienieWarunek}" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <RadioButton IsChecked="{Binding Wyroznienie, Mode=TwoWay}" Margin="5" Content="Tak"/>
+                    <RadioButton Margin="5" Content="Nie"/>
                 </StackPanel>
             </GroupBox>
             <Grid HorizontalAlignment="Center" Grid.IsSharedSizeScope="True">
@@ -150,8 +150,8 @@
                     <ColumnDefinition SharedSizeGroup="rozmiar" />
                     <ColumnDefinition SharedSizeGroup="rozmiar" />
                 </Grid.ColumnDefinitions>
-                <Button Command="local:SzukajCommands.Ok" Padding="5" Margin="5">OK</Button>
-                <Button Command="local:SzukajCommands.Cancel" Padding="5" Margin="5" Grid.Column="1">Anuluj</Button>
+                <Button Command="local:SzukajCommands.Ok" Padding="5" Margin="5" Content="OK"/>
+                <Button Command="local:SzukajCommands.Cancel" Padding="5" Margin="5" Grid.Column="1" Content="Anuluj"/>
             </Grid>
         </StackPanel>
     </Border>
