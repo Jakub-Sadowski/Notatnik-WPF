@@ -12,7 +12,7 @@ namespace Notatnik
         public Brush Kolor { get; set; } // Flyweight - stan wewnętrzny
         public string Nazwa { get; set; } // Flyweight - stan wewnętrzny
 
-        public int LiczbaNotatek(Data data) // Flyweight - stan zewnętrzny
+        public int PozycjaNotatki(Notatka notatka, Data data) // Flyweight - stan zewnętrzny
         {
             return 0; // na później
         }
