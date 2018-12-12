@@ -11,6 +11,12 @@ namespace Notatnik
     public class NotatkiLateInit : ICollection<Notatka>
     {
         private ObservableCollection<Notatka> notatki;
+
+        public NotatkiLateInit(ICollection<Notatka> notatki)
+        {
+            this.notatki = (ObservableCollection<Notatka>)notatki;
+        }
+
         public int Count
         {
             get
@@ -55,6 +61,11 @@ namespace Notatnik
         public bool Remove(Notatka item)
         {
             return notatki.Remove(item);
+        }
+
+        public void RemoveAt(int index)
+        {
+            notatki.RemoveAt(index);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
