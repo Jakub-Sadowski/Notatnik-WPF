@@ -21,7 +21,7 @@ namespace Notatnik
         public string SlowaKluczowe { get; set; }
 
         public bool KategoriaWarunek { get; set; }
-        public string Kategoria { get; set; }
+        public Kategoria Kategoria { get; set; }
 
         public bool DataUtworzeniaWarunek { get; set; }
         public bool DataUtworzeniaOdWarunek { get; set; }

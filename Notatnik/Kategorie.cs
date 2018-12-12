@@ -4,15 +4,15 @@ namespace Notatnik
 {
     public class Kategorie
     {
-        private Collection<string> data = new ObservableCollection<string>();
+        private Collection<Kategoria> data = new Collection<Kategoria>(); //paleta prototypów
 
         private Kategorie()
         {
-            data.Add("Brak");
-            data.Add("Osobiste");
-            data.Add("Praca");
-            data.Add("Finanse");
-            data.Add("Plany");
+            data.Add(new KategoriaDomyslna());
+            data.Add(new KategoriaOsobiste());
+            data.Add(new KategoriaPraca());
+            data.Add(new KategoriaFinanse());
+            data.Add(new KategoriaPlany());
         }
 
         private static Kategorie singleton = null;
@@ -25,10 +25,18 @@ namespace Notatnik
                 return singleton;
             }
         }
-
-        public Collection<string> ListaKategorii
+        
+        public Kategoria GetKategoria(int id)
         {
-            get { return data; }
+            return data[id].Clone();
+        }
+
+        public Collection<Kategoria> ListaKategorii
+        {
+            get
+            {
+                return data;
+            }
         }
     }
 }

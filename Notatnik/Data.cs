@@ -13,7 +13,7 @@ namespace Notatnik
         private Collection<Notatka> data = new ObservableCollection<Notatka>();
         private Data()
         {
-            Notatka notatka1 = new Notatka(), notatka2 = new Notatka();
+            Notatka notatka1 = new Notatka(Kategorie.Instance), notatka2 = new Notatka(Kategorie.Instance);
             notatka1.Tytul = "Nowa notatka 1";
             notatka1.Autor = "Autor1";
             notatka2.Tytul = "Nowa notatka 2";

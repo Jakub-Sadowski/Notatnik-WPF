@@ -14,17 +14,19 @@ namespace Notatnik
     public partial class EdycjaWindow : Window
     {
         public Notatka AktywnaNotatka { get; set; }
-        FlowDocument tekstKopia = new FlowDocument();
-        bool edited, discarded;
+        private FlowDocument tekstKopia = new FlowDocument();
+        private bool edited, discarded;
+        private Kategorie kategorie;
 
-        public EdycjaWindow()
+        public EdycjaWindow(Kategorie kategorie)
         {
             InitializeComponent();
+            this.kategorie = kategorie;
         }
 
         private void EdycjaWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            cbxKategoria.ItemsSource = Kategorie.Instance.ListaKategorii;
+            cbxKategoria.ItemsSource = kategorie.ListaKategorii;
             List<Brush> kolory = new List<Brush>() { Brushes.Black, Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green, Brushes.Blue, Brushes.Purple };
             foreach(Brush kolor in kolory)
             {

@@ -108,6 +108,14 @@
     <Compile Include="Converters\ToFirstLetterConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\XamlToImageConverter.cs" />
+    <Compile Include="HistoriaEdycji.cs" />
+    <Compile Include="Kategoria.cs" />
+    <Compile Include="KategoriaDomyslna.cs" />
+    <Compile Include="KategoriaFinanse.cs" />
+    <Compile Include="KategoriaOsobiste.cs" />
+    <Compile Include="KategoriaPlany.cs" />
+    <Compile Include="KategoriaPraca.cs" />
+    <Compile Include="NotatkiLateInit.cs" />
     <Compile Include="Szukaj\Filtr.cs" />
     <Compile Include="Converters\NoTitleConverter.cs" />
     <Compile Include="Main\MainCommands.cs" />
@@ -119,6 +127,7 @@
     <Compile Include="Szukaj\SzukajWindow.xaml.cs">
       <DependentUpon>SzukajWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WpisHistorii.cs" />
     <Page Include="Dictionaries\ConvertersDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -11,21 +11,36 @@ namespace Notatnik
         public FlowDocument Tekst { get; set; }
         public string Tytul { get; set; }
         public string Autor { get; set; }
-        public string Kategoria { get; set; }
+        //public string Kategoria { get; set; }
+        public Kategoria Kategoria { get; set; }
+
         public DateTime DataUtworzenia { get; set; }
         public DateTime DataModyfikacji { get; set; }
         public bool Wyroznienie { get; set; }
 
-        public Notatka()
+        public HistoriaEdycji HistoriaEdycji { get; set; }
+
+        public Notatka(Kategorie kategorie)
         {
             Wyroznienie = false;
             DataUtworzenia = DateTime.Now;
             DataModyfikacji = DateTime.Now;
-            Kategoria = Kategorie.Instance.ListaKategorii[0];
+            Kategoria = kategorie.GetKategoria(0);
             Tekst = new FlowDocument();
             Tekst.FontFamily = SystemFonts.MessageFontFamily;
             Tekst.FontSize = 12;
             Tekst.Foreground = Brushes.Black;
+            HistoriaEdycji = new HistoriaEdycji();
+        }
+
+        public void ZapiszStanDoHistorii()
+        {
+            HistoriaEdycji.DodajWpis(new WpisHistorii(this));
+        }
+
+        public void WczytajStanZHistorii(int pozycja)
+        {
+            // ... 
         }
 
         public static void PrzepiszTekst(FlowDocument from, FlowDocument to)

@@ -20,11 +20,13 @@ namespace Notatnik
         private PodgladWindow oknoPodgladu;
         private EdycjaWindow oknoEdycji;
         private Data data;
+        private Kategorie kategorie;
 
-        public MainWindow(Data data)
+        public MainWindow(Data data, Kategorie kategorie)
         {
             InitializeComponent();
             this.data = data;
+            this.kategorie = kategorie;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -116,8 +118,8 @@ namespace Notatnik
 
         private void MyAdd(object sender, ExecutedRoutedEventArgs e)
         {
-            EdycjaWindow noweOkno = new EdycjaWindow();
-            Notatka nowaNotatka = new Notatka();
+            EdycjaWindow noweOkno = new EdycjaWindow(kategorie);
+            Notatka nowaNotatka = new Notatka(kategorie);
             data.Notatki.Add(nowaNotatka);
 
             lbxData.SelectedIndex = lbxData.Items.Count - 1;
@@ -137,7 +139,7 @@ namespace Notatnik
 
         private void MyEdit(object sender, ExecutedRoutedEventArgs e)
         {
-            oknoEdycji = new EdycjaWindow();
+            oknoEdycji = new EdycjaWindow(kategorie);
             oknoEdycji.Owner = this;
             oknoEdycji.AktywnaNotatka = lbxData.SelectedItem as Notatka;
             oknoEdycji.Show();
