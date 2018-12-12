@@ -6,7 +6,7 @@ namespace Notatnik
     {
         private Collection<string> data = new ObservableCollection<string>();
 
-        public Kategorie()
+        private Kategorie()
         {
             data.Add("Brak");
             data.Add("Osobiste");

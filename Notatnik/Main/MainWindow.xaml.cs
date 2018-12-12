@@ -17,17 +17,19 @@ namespace Notatnik
             }
         }
 
-        PodgladWindow oknoPodgladu;
-        EdycjaWindow oknoEdycji;
+        private PodgladWindow oknoPodgladu;
+        private EdycjaWindow oknoEdycji;
+        private Data data;
 
-        public MainWindow()
+        public MainWindow(Data data)
         {
             InitializeComponent();
+            this.data = data;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            lbxData.ItemsSource = Data.Instance.Notatki;
+            lbxData.ItemsSource = data.Notatki;
         }
 
         private void Sort(object sender, RoutedEventArgs e)
@@ -116,7 +118,7 @@ namespace Notatnik
         {
             EdycjaWindow noweOkno = new EdycjaWindow();
             Notatka nowaNotatka = new Notatka();
-            Data.Instance.Notatki.Add(nowaNotatka);
+            data.Notatki.Add(nowaNotatka);
 
             lbxData.SelectedIndex = lbxData.Items.Count - 1;
             noweOkno.AktywnaNotatka = nowaNotatka;
@@ -128,7 +130,7 @@ namespace Notatnik
             MessageBoxResult result = MessageBox.Show("Czy napewno chcesz usunąć zaznaczony element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
-                Data.Instance.Notatki.RemoveAt(lbxData.SelectedIndex);
+                data.Notatki.RemoveAt(lbxData.SelectedIndex);
                 lbxData.SelectedIndex = lbxData.Items.Count - 1;
             }
         }
@@ -197,7 +199,7 @@ namespace Notatnik
 
         private void MySearchCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if ((Data.Instance == null) || (Data.Instance.Notatki.Count < 2) || (btnWyroznione == null) || (btnWyroznione.IsChecked == true))
+            if ((data == null) || (data.Notatki.Count < 2) || (btnWyroznione == null) || (btnWyroznione.IsChecked == true))
                 e.CanExecute = false;
             else
                 e.CanExecute = true;

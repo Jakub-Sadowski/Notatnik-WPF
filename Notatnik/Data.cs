@@ -11,7 +11,7 @@ namespace Notatnik
     public class Data
     {
         private Collection<Notatka> data = new ObservableCollection<Notatka>();
-        public Data()
+        private Data()
         {
             Notatka notatka1 = new Notatka(), notatka2 = new Notatka();
             notatka1.Tytul = "Nowa notatka 1";
