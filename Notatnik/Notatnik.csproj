@@ -101,6 +101,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\CathegoryToStringConverter.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Edycja\EdycjaCommands.cs" />
     <Compile Include="Converters\CathegoryToBrushConverter.cs" />

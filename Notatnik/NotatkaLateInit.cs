@@ -23,8 +23,9 @@ namespace Notatnik
             get
             {
                 if (notatka == null)
-                    notatka = new Notatka(kategorie);
-                return notatka.Tekst;
+                    return new FlowDocument();
+                else
+                    return notatka.Tekst;
             }
             set
             {
@@ -73,7 +74,8 @@ namespace Notatnik
             {
                 if (notatka == null)
                     return kategorie.GetKategoria(0);
-                else return notatka.Kategoria;
+                else
+                    return notatka.Kategoria;
             }
             set
             {
@@ -107,8 +109,9 @@ namespace Notatnik
             get
             {
                 if (notatka == null)
-                    notatka = new Notatka(kategorie);
-                return notatka.HistoriaEdycji;
+                    return new HistoriaEdycji();
+                else
+                    return notatka.HistoriaEdycji;
             }
             set
             {

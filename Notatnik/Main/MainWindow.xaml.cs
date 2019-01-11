@@ -95,7 +95,7 @@ namespace Notatnik
                     else if (cbiGroupByAuthor.IsSelected)
                         View.GroupDescriptions.Add(new PropertyGroupDescription("Autor", new NoAuthorConverter()));
                     else if (cbiGroupByCathegory.IsSelected)
-                        View.GroupDescriptions.Add(new PropertyGroupDescription("Kategoria"));
+                        View.GroupDescriptions.Add(new PropertyGroupDescription("Kategoria", new CathegoryToStringConverter()));
                 }
             }
         }

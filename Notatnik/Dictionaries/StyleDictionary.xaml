@@ -149,7 +149,7 @@
         </Style.Setters>
     </Style>
     <DataTemplate x:Key="GroupTemplate">
-        <Border Padding="5" Background="{Binding Path=Name, Converter={StaticResource CathegoryToBrushConverter}}">
+        <Border Padding="5" Background="{Binding Path=Items[0].Kategoria, Converter={StaticResource CathegoryToBrushConverter}}">
             <TextBlock Text="{Binding Path=Name}" FontWeight="Bold" Foreground="White" />
         </Border>
     </DataTemplate>
