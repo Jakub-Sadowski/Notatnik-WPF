@@ -61,7 +61,7 @@
             <Border Margin="5" Padding="2" BorderThickness="1" BorderBrush="{Binding Path=Wyroznienie, Converter={StaticResource BoolToBrushConverterForeground}}" CornerRadius="2">
                 <StackPanel Margin="5">
                     <TextBlock Text="{Binding Path=Tytul, Converter={StaticResource NoTitleConverter}}" FontWeight="Bold" Margin="2" Foreground="{Binding Path=Wyroznienie, Converter={StaticResource BoolToBrushConverterForeground}}" />
-                    <TextBlock Text="{Binding Path=Autor}" Margin="2" Foreground="{Binding Path=Wyroznienie, Converter={StaticResource BoolToBrushConverterForeground}}">
+                    <TextBlock Text="{Binding Path=Autor, Converter={StaticResource NoAuthorConverter}}" Margin="2" Foreground="{Binding Path=Wyroznienie, Converter={StaticResource BoolToBrushConverterForeground}}">
                         <TextBlock.Style>
                             <Style>
                                 <Style.Triggers>

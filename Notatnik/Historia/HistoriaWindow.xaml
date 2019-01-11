@@ -1,0 +1,38 @@
+﻿<Window x:Class="Notatnik.HistoriaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notatnik"
+        mc:Ignorable="d"
+        Title="Historia Edycji" Height="400" Width="300" Loaded="HistoriaWindow_Loaded" Style="{StaticResource WindowStyle}">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:HistoriaCommands.Restore" Executed="MyRestore" CanExecute="MyRestoreCanExecute" />
+        <CommandBinding Command="local:HistoriaCommands.Cancel" Executed="MyCancel"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="local:HistoriaCommands.Restore" Key="Return" />
+        <KeyBinding Command="local:HistoriaCommands.Cancel" Key="Esc" />
+    </Window.InputBindings>
+    <Border Style="{StaticResource MainBorderStyle}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <ListBox Name="lbxHistoria" Margin="3 5 5 3" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Style="{StaticResource ListBoxStyle}">
+            </ListBox>
+            <Grid Grid.Row="1" HorizontalAlignment="Center" IsSharedSizeScope="true">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition SharedSizeGroup="rozmiar" />
+                    <ColumnDefinition SharedSizeGroup="rozmiar" />
+                </Grid.ColumnDefinitions>
+                <Button Command="local:HistoriaCommands.Restore" Padding="5" Margin="5" Content="OK" />
+                <Button Command="local:HistoriaCommands.Cancel" Padding="5" Margin="5" Content="Anuluj" Grid.Column="1" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,7 +44,7 @@ namespace Notatnik
             discarded = false;
         }
 
-        private void EdycjaWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void EdycjaWindow_Closing(object sender, CancelEventArgs e)
         {
             if (!discarded && edited)
             {
@@ -148,6 +149,18 @@ namespace Notatnik
                     XamlWriter.Save(AktywnaNotatka, fileStream);
                     fileStream.Close();
                 }
+            }
+        }
+
+        private void MyEditHistory(object sender, ExecutedRoutedEventArgs e)
+        {
+            HistoriaWindow noweOkno = new HistoriaWindow();
+            noweOkno.Owner = this;
+            noweOkno.AktywnaHistoriaEdycji = AktywnaNotatka.HistoriaEdycji;
+            if (noweOkno.ShowDialog() == true)
+            {
+                WpisHistorii wpis = noweOkno.lbxHistoria.SelectedItem as WpisHistorii;
+                // przywrócenie stanu
             }
         }
     }

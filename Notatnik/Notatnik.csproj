@@ -108,14 +108,18 @@
     <Compile Include="Converters\ToFirstLetterConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\XamlToImageConverter.cs" />
-    <Compile Include="HistoriaEdycji.cs" />
+    <Compile Include="Historia\HistoriaWindow.xaml.cs">
+      <DependentUpon>HistoriaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Historia\HistoriaCommands.cs" />
+    <Compile Include="Historia\HistoriaEdycji.cs" />
     <Compile Include="INotatka.cs" />
-    <Compile Include="Kategoria.cs" />
-    <Compile Include="KategoriaDomyslna.cs" />
-    <Compile Include="KategoriaFinanse.cs" />
-    <Compile Include="KategoriaOsobiste.cs" />
-    <Compile Include="KategoriaPlany.cs" />
-    <Compile Include="KategoriaPraca.cs" />
+    <Compile Include="Kategorie\Kategoria.cs" />
+    <Compile Include="Kategorie\KategoriaDomyslna.cs" />
+    <Compile Include="Kategorie\KategoriaFinanse.cs" />
+    <Compile Include="Kategorie\KategoriaOsobiste.cs" />
+    <Compile Include="Kategorie\KategoriaPlany.cs" />
+    <Compile Include="Kategorie\KategoriaPraca.cs" />
     <Compile Include="NotatkaLateInit.cs" />
     <Compile Include="Szukaj\Filtr.cs" />
     <Compile Include="Converters\NoTitleConverter.cs" />
@@ -123,7 +127,7 @@
     <Compile Include="Converters\BoolToBrushConverter.cs" />
     <Compile Include="Converters\SelectionToVisibilityConverter.cs" />
     <Compile Include="Notatka.cs" />
-    <Compile Include="Kategorie.cs" />
+    <Compile Include="Kategorie\Kategorie.cs" />
     <Compile Include="Szukaj\FiltrAutor.cs" />
     <Compile Include="Szukaj\FiltrDataModyfikacjiDo.cs" />
     <Compile Include="Szukaj\FiltrDataModyfikacjiOd.cs" />
@@ -141,7 +145,7 @@
     <Compile Include="Szukaj\SzukajWindow.xaml.cs">
       <DependentUpon>SzukajWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WpisHistorii.cs" />
+    <Compile Include="Historia\WpisHistorii.cs" />
     <Page Include="Dictionaries\ConvertersDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dictionaries\IconsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Historia\HistoriaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -275,6 +283,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DiagramKlas.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

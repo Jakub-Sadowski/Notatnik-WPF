@@ -1,29 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
+﻿using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows.Markup;
 
 namespace Notatnik
 {
+    public class NotatkiCollection : ObservableCollection<INotatka> { }
+
     public class Data
     {
-        private Collection<INotatka> data;
+        private const string FILENAME = "data.xaml";
+        private NotatkiCollection data;
+
         private Data()
         {
-            data = new ObservableCollection<INotatka>();
-
-            INotatka notatka1 = new NotatkaLateInit(Kategorie.Instance), notatka2 = new NotatkaLateInit(Kategorie.Instance);
-            notatka1.Tytul = "Nowa notatka 1";
-            notatka1.Autor = "Autor1";
-            notatka2.Tytul = "Nowa notatka 2";
-            notatka2.Autor = "Autor2";
-            notatka1.Tekst.Blocks.Add(new Paragraph(new Run("przykładowy tekst1")));
-            notatka2.Tekst.Blocks.Add(new Paragraph(new Run("przykładowy tekst2")));
-            data.Add(notatka1);
-            data.Add(notatka2);            
+            LoadAll();
         }
 
         private static Data singleton = null;
@@ -40,6 +30,20 @@ namespace Notatnik
         public Collection<INotatka> Notatki
         {
             get { return data; }
+        }
+
+        public void SaveAll()
+        {
+            FileStream fileStream = File.Open(FILENAME, FileMode.Create);
+            XamlWriter.Save(data, fileStream);
+            fileStream.Close();
+        }
+
+        public void LoadAll()
+        {
+            FileStream fileStream = File.Open(FILENAME, FileMode.Open);
+            data = (NotatkiCollection)XamlReader.Load(fileStream);
+            fileStream.Close();
         }
     }
 }

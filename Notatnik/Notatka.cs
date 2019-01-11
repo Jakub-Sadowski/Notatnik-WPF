@@ -21,7 +21,6 @@ namespace Notatnik
 
         public Notatka(Kategorie kategorie)
         {
-            System.Diagnostics.Debug.WriteLine("utworzona została prawdziwa instancja notatki");
             Wyroznienie = false;
             DataUtworzenia = DateTime.Now;
             DataModyfikacji = DateTime.Now;

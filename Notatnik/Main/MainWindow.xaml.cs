@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using MS.Internal.Data;
+using System.IO;
+using System.Windows.Markup;
 
 namespace Notatnik
 {
@@ -27,16 +29,22 @@ namespace Notatnik
         private Data data;
         private Kategorie kategorie;
 
-        public MainWindow(Data data, Kategorie kategorie)
+        public MainWindow(Kategorie kategorie, Data data)
         {
             InitializeComponent();
-            this.data = data;
             this.kategorie = kategorie;
+            this.data = data;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             lbxData.ItemsSource = data.Notatki;
+        }
+
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            data.SaveAll();
+            Application.Current.Shutdown();
         }
 
         private void Sort(object sender, RoutedEventArgs e)

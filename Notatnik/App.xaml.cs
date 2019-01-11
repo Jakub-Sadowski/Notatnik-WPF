@@ -6,7 +6,7 @@ namespace Notatnik
     {
         void App_Startup(object sender, StartupEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(Data.Instance, Kategorie.Instance);
+            MainWindow mainWindow = new MainWindow(Kategorie.Instance, Data.Instance);
             mainWindow.Show();
         }
     }

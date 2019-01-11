@@ -131,5 +131,7 @@ namespace Notatnik
             if (notatka != null)
                 notatka.WczytajStanZHistorii(pozycja);
         }
+
+        public NotatkaLateInit() { kategorie = Kategorie.Instance; }
     }
 }

@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace Notatnik
 {
+    public class WpisyCollection : Collection<WpisHistorii> { }
+
     public class HistoriaEdycji
     {
-        public Collection<WpisHistorii> Wpisy { get; set; }
+        public WpisyCollection Wpisy { get; set; }
         
         public HistoriaEdycji()
         {
-            Wpisy = new ObservableCollection<WpisHistorii>();
+            Wpisy = new WpisyCollection();
         }
 
         public void DodajWpis(WpisHistorii wpis)

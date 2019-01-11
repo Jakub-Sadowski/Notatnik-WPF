@@ -11,12 +11,14 @@
         <CommandBinding Command="local:EdycjaCommands.Discard" Executed="MyDiscard" CanExecute="EditedCanExecute" />
         <CommandBinding Command="local:EdycjaCommands.Import" Executed="MyImport" />
         <CommandBinding Command="local:EdycjaCommands.Export" Executed="MyExport" />
+        <CommandBinding Command="local:EdycjaCommands.EditHistory" Executed="MyEditHistory" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="local:EdycjaCommands.Save" Key="S" Modifiers="Ctrl" />
         <KeyBinding Command="local:EdycjaCommands.Discard" Key="D" Modifiers="Ctrl" />
         <KeyBinding Command="local:EdycjaCommands.Import" Key="I" Modifiers="Ctrl" />
         <KeyBinding Command="local:EdycjaCommands.Export" Key="E" Modifiers="Ctrl" />
+        <KeyBinding Command="local:EdycjaCommands.EditHistory" Key="H" Modifiers="Ctrl" />
     </Window.InputBindings>
     <Border Style="{StaticResource MainBorderStyle}">
         <Grid Name="gridMain" DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=AktywnaNotatka, Mode=TwoWay}">
@@ -58,6 +60,7 @@
                 <Button ToolTip="Eksportuj" Command="local:EdycjaCommands.Export" Height="35" Width="35" Margin="0 3 3 3" Style="{StaticResource AnimatedButton}">
                     <ContentControl ContentTemplate="{StaticResource ExportIcon}" />
                 </Button>
+                <Button ToolTip="Historia Edycji" Command="local:EdycjaCommands.EditHistory" Padding="5" Margin="0 3 3 3" Content="Historia Edycji" />
             </ToolBar>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>

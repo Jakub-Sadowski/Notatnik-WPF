@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Notatnik Osobisty" Height="400" Width="500"
         Loaded="MainWindow_Loaded"
+        Closing="MainWindow_Closing"
         Style="{StaticResource WindowStyle}">
     <Window.CommandBindings>
         <CommandBinding Command="local:MainCommands.Add" Executed="MyAdd" />
