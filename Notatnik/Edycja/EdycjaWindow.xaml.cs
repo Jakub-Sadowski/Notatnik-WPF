@@ -42,8 +42,6 @@ namespace Notatnik
             rtbTekst.Document = tekstKopia;
             edited = false;
             discarded = false;
-
-            System.Diagnostics.Debug.WriteLine(AktywnaNotatka.Kategoria.ToString());
         }
 
         private void EdycjaWindow_Closing(object sender, CancelEventArgs e)

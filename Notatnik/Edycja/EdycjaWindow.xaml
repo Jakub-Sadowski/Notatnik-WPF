@@ -77,7 +77,7 @@
                 <TextBlock Margin="5" Grid.Row="1">Autor</TextBlock>
                 <TextBox Name="tbxAutor" Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Path=Autor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" TextChanged="SetEdit" Style="{StaticResource TextBoxStyle}" />
                 <TextBlock Margin="5" Grid.Row="2">Kategoria</TextBlock>
-                <ComboBox Name="cbxKategoria" Margin="5" Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Path=Kategoria, Mode=TwoWay, UpdateSourceTrigger=Explicit}" SelectionChanged="SetEdit" Style="{StaticResource ComboBoxStyle}" />
+                <ComboBox Name="cbxKategoria" Margin="5" Grid.Row="2" Grid.Column="1" SelectedIndex="{Binding Path=Kategoria, Mode=TwoWay, UpdateSourceTrigger=Explicit, Converter={StaticResource CathegoryToPositionConverter}}" SelectionChanged="SetEdit" Style="{StaticResource ComboBoxStyle}" />
             </Grid>
             <Separator Grid.Row="2" BorderThickness="1" BorderBrush="#FFDBDEE3" Margin="0 0 3 0" />
             <RichTextBox Name="rtbTekst" Margin="5" Grid.Row="3" TextChanged="SetEdit" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Visible" SelectionChanged="UpdateControlState" Style="{StaticResource RichTextBoxStyle}" />
