@@ -41,9 +41,14 @@ namespace Notatnik
 
         public void LoadAll()
         {
-            FileStream fileStream = File.Open(FILENAME, FileMode.Open);
-            data = (NotatkiCollection)XamlReader.Load(fileStream);
-            fileStream.Close();
+            if (File.Exists(FILENAME))
+            {
+                FileStream fileStream = File.Open(FILENAME, FileMode.Open);
+                data = (NotatkiCollection)XamlReader.Load(fileStream);
+                fileStream.Close();
+            }
+            else
+                data = new NotatkiCollection();
         }
     }
 }
