@@ -30,7 +30,7 @@
                     <ColumnDefinition SharedSizeGroup="rozmiar" />
                     <ColumnDefinition SharedSizeGroup="rozmiar" />
                 </Grid.ColumnDefinitions>
-                <Button Command="local:HistoriaCommands.Restore" Padding="5" Margin="5" Content="OK" />
+                <Button Command="local:HistoriaCommands.Restore" Padding="5" Margin="5" Content="Przywróć" />
                 <Button Command="local:HistoriaCommands.Cancel" Padding="5" Margin="5" Content="Anuluj" Grid.Column="1" />
             </Grid>
         </Grid>

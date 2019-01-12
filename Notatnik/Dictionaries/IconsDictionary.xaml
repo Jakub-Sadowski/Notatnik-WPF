@@ -56,6 +56,9 @@
     <DataTemplate x:Key="PasteIcon">
         <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/paste.xaml}" Style="{StaticResource Grayscale}" />
     </DataTemplate>
+    <DataTemplate x:Key="ClockIcon">
+        <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/clock.xaml}" Style="{StaticResource Grayscale}" />
+    </DataTemplate>
     <DataTemplate x:Key="BoldIcon">
         <Image Source="{Binding Converter={StaticResource XamlToImageConverter}, ConverterParameter=Icons/bold.xaml}" Style="{StaticResource Grayscale}" />
     </DataTemplate>
