@@ -89,7 +89,7 @@ namespace Notatnik
             AktywnaNotatka.DataModyfikacji = DateTime.Now;
             tbxTytul.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             tbxAutor.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            cbxKategoria.GetBindingExpression(ComboBox.SelectedItemProperty).UpdateSource();
+            AktywnaNotatka.Kategoria = kategorie.GetKategoria(cbxKategoria.SelectedIndex);
             Notatka.PrzepiszTekst(tekstKopia, AktywnaNotatka.Tekst);
         }
 
