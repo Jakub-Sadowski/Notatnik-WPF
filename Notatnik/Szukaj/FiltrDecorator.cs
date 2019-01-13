@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,329 +11,66 @@ namespace Notatnik
     {
         protected IFiltr filtr;
 
-        public FiltrDecorator(IFiltr filtr)
+        public FiltrDecorator(IFiltr filtr) { this.filtr = filtr; }
+
+        public IFiltr GetDecorated() { return filtr; }
+
+        public string Tytul
         {
-            this.filtr = filtr;
+            get { return filtr.Tytul; }
+            set { filtr.Tytul = value; }
         }
 
         public string Autor
         {
             get { return filtr.Autor; }
-
             set { filtr.Autor = value; }
-        }
-
-        public bool AutorWarunek
-        {
-            get
-            {
-                return filtr.AutorWarunek;
-            }
-
-            set
-            {
-                filtr.AutorWarunek = value;
-            }
-        }
-
-        public DateTime DataModyfikacjiDo
-        {
-            get
-            {
-                return filtr.DataModyfikacjiDo;
-            }
-
-            set
-            {
-                filtr.DataModyfikacjiDo = value;
-            }
-        }
-
-        public bool DataModyfikacjiDoWarunek
-        {
-            get
-            {
-                return filtr.DataModyfikacjiDoWarunek;
-            }
-
-            set
-            {
-                filtr.DataModyfikacjiDoWarunek = value;
-            }
-        }
-
-        /* poprawić resztę */
-        public DateTime DataModyfikacjiOd
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool DataModyfikacjiOdWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool DataModyfikacjiWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public DateTime DataUtworzeniaDo
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool DataUtworzeniaDoWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public DateTime DataUtworzeniaOd
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool DataUtworzeniaOdWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool DataUtworzeniaWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string Error
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Kategoria Kategoria
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool KategoriaWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
         }
 
         public string SlowaKluczowe
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return filtr.SlowaKluczowe; }
+            set { filtr.SlowaKluczowe = value; }
         }
 
-        public bool SlowaKluczoweJakiekolwiek
+        public Kategoria Kategoria
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return filtr.Kategoria; }
+            set { filtr.Kategoria = value; }
         }
 
-        public bool SlowaKluczoweWarunek
+        public DateTime DataModyfikacjiDo
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return filtr.DataModyfikacjiDo; }
+            set { filtr.DataModyfikacjiDo = value; }
+        }
+        
+        public DateTime DataModyfikacjiOd
+        {
+            get { return filtr.DataModyfikacjiOd; }
+            set { filtr.DataModyfikacjiOd = value; }
         }
 
-        public bool SlowaKluczoweWszystkie
+        public DateTime DataUtworzeniaDo
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return filtr.DataUtworzeniaDo; }
+            set { filtr.DataUtworzeniaDo = value; }
         }
 
-        public string Tytul
+        public DateTime DataUtworzeniaOd
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool TytulDokladny
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool TytulWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool TytulZawiera
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return filtr.DataUtworzeniaOd; }
+            set { filtr.DataUtworzeniaOd = value; }
         }
 
         public bool Wyroznienie
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return filtr.Wyroznienie; }
+            set { filtr.Wyroznienie = value; }
         }
 
-        public bool WyroznienieWarunek
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public virtual bool CzyPasuje(INotatka notatka) { return filtr.CzyPasuje(notatka); }
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool CzyPasuje(INotatka notatka)
-        {
-            return filtr.CzyPasuje(notatka);
-        }
+        public virtual string Blad() { return filtr.Blad(); }
     }
 }

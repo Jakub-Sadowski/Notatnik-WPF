@@ -6,7 +6,7 @@ namespace Notatnik
 {
     public partial class SzukajWindow : Window
     {
-        public Filtr AktywnyFiltr { get; set; }
+        public IFiltr AktywnyFiltr { get; set; }
 
         public SzukajWindow()
         {
@@ -19,58 +19,76 @@ namespace Notatnik
             cbxKategoria.SelectedItem = Kategorie.Instance.ListaKategorii[0];
         }
 
-        private void ValidationError(object sender, ValidationErrorEventArgs e)
+        private void PokazKomunikat(string tresc)
         {
-            if (e.Action == ValidationErrorEventAction.Added)
-                MessageBox.Show(e.Error.ErrorContent.ToString(), "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBox.Show(tresc, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private void MyOk(object sender, ExecutedRoutedEventArgs e)
         {
-            DialogResult = true;
-            Close();
+            /* udekorowanie filtra */
+            if (cbxTytulWarunek.IsChecked == true)
+            {
+                if (rbTytulDokladnyWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrTytulDokladny(AktywnyFiltr);
+                else
+                    AktywnyFiltr = new FiltrTytulZawiera(AktywnyFiltr);
+            }
+            if (cbxAutorWarunek.IsChecked == true)
+                AktywnyFiltr = new FiltrAutor(AktywnyFiltr);
+
+            if (cbxSlowaKluczoweWarunek.IsChecked == true)
+            {
+                if (rbSlowaKluczoweWszystkieWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrSlowaKluczoweWszystkie(AktywnyFiltr);
+                else
+                    AktywnyFiltr = new FiltrSlowaKluczoweJakiekolwiek(AktywnyFiltr);
+            }
+
+            if (cbxKategoriaWarunek.IsChecked == true)
+                AktywnyFiltr = new FiltrKategoria(AktywnyFiltr);
+
+            if (cbxDataUtworzeniaWarunek.IsChecked == true)
+            {
+                if (cbxDataUtworzeniaOdWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrDataUtworzeniaOd(AktywnyFiltr);
+                if (cbxDataUtworzeniaDoWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrDataUtworzeniaDo(AktywnyFiltr);
+                if (cbxDataUtworzeniaOdWarunek.IsChecked == true && cbxDataUtworzeniaDoWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrDataUtworzeniaZakres(AktywnyFiltr);
+            }
+
+            if (cbxDataModyfikacjiWarunek.IsChecked == true)
+            {
+                if (cbxDataModyfikacjiOdWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrDataModyfikacjiOd(AktywnyFiltr);
+                if (cbxDataModyfikacjiDoWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrDataModyfikacjiDo(AktywnyFiltr);
+                if (cbxDataModyfikacjiOdWarunek.IsChecked == true && cbxDataModyfikacjiDoWarunek.IsChecked == true)
+                    AktywnyFiltr = new FiltrDataModyfikacjiZakres(AktywnyFiltr);
+            }
+
+            string blad = AktywnyFiltr.Blad();
+
+            if (!string.IsNullOrEmpty(blad))
+            {
+                PokazKomunikat(blad);
+                while (AktywnyFiltr.GetDecorated() != null)
+                    AktywnyFiltr = AktywnyFiltr.GetDecorated();
+            }
+            else
+            {
+                DialogResult = true;
+                Close();
+            }
         }
 
         private void MyOkCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             if (AktywnyFiltr == null)
-            {
                 e.CanExecute = false;
-                return;
-            }
-
-            if (Validation.GetHasError(dpDataUtworzeniaOd) || Validation.GetHasError(dpDataUtworzeniaDo) || Validation.GetHasError(dpDataModyfikacjiOd) || Validation.GetHasError(dpDataModyfikacjiDo))
-            {
-                e.CanExecute = false;
-                return;
-            }
-
-            if ((AktywnyFiltr.TytulWarunek) || (AktywnyFiltr.AutorWarunek) || (AktywnyFiltr.SlowaKluczoweWarunek) || (AktywnyFiltr.KategoriaWarunek) || (AktywnyFiltr.DataUtworzeniaWarunek) || (AktywnyFiltr.DataModyfikacjiWarunek) || (AktywnyFiltr.WyroznienieWarunek))
-            {
-                e.CanExecute = true;
-                if (AktywnyFiltr.DataUtworzeniaWarunek)
-                {
-                    if ((AktywnyFiltr.DataUtworzeniaOdWarunek) || (AktywnyFiltr.DataUtworzeniaDoWarunek))
-                        e.CanExecute = true;
-                    else
-                    {
-                        e.CanExecute = false;
-                        return;
-                    }
-                }
-                if (AktywnyFiltr.DataModyfikacjiWarunek)
-                {
-                    if ((AktywnyFiltr.DataModyfikacjiOdWarunek) || (AktywnyFiltr.DataModyfikacjiDoWarunek))
-                        e.CanExecute = true;
-                    else
-                    {
-                        e.CanExecute = false;
-                        return;
-                    }
-                }
-            }
             else
-                e.CanExecute = false;
+                e.CanExecute = true;
         }
 
         private void MyCancel(object sender, ExecutedRoutedEventArgs e)

@@ -140,8 +140,10 @@
     <Compile Include="Szukaj\FiltrAutor.cs" />
     <Compile Include="Szukaj\FiltrDataModyfikacjiDo.cs" />
     <Compile Include="Szukaj\FiltrDataModyfikacjiOd.cs" />
+    <Compile Include="Szukaj\FiltrDataModyfikacjiZakres.cs" />
     <Compile Include="Szukaj\FiltrDataUtworzeniaDo.cs" />
     <Compile Include="Szukaj\FiltrDataUtworzeniaOd.cs" />
+    <Compile Include="Szukaj\FiltrDataUtworzeniaZakres.cs" />
     <Compile Include="Szukaj\FiltrDecorator.cs" />
     <Compile Include="Szukaj\FiltrKategoria.cs" />
     <Compile Include="Szukaj\FiltrSlowaKluczoweJakiekolwiek.cs" />

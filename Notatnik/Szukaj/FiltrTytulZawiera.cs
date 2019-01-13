@@ -8,10 +8,12 @@ namespace Notatnik
 {
     public class FiltrTytulZawiera : FiltrDecorator
     {
-        public FiltrTytulZawiera(Filtr filtr) : base(filtr) { }
+        public FiltrTytulZawiera(IFiltr filtr) : base(filtr) { }
 
-        public new bool CzyPasuje(INotatka notatka)
+        public override bool CzyPasuje(INotatka notatka)
         {
+            if (!notatka.Tytul.ToLower().Contains(Tytul.ToLower()))
+                return false;
             return filtr.CzyPasuje(notatka);
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,10 @@ namespace Notatnik
     {
         public FiltrDataUtworzeniaOd(IFiltr filtr) : base(filtr) { }
 
-        public new bool CzyPasuje(INotatka notatka)
+        public override bool CzyPasuje(INotatka notatka)
         {
+            if (notatka.DataUtworzenia < DataUtworzeniaOd)
+                return false;
             return filtr.CzyPasuje(notatka);
         }
     }

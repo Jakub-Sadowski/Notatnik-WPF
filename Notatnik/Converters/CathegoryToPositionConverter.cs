@@ -15,6 +15,8 @@ namespace Notatnik
         {
             Kategoria kategoria = value as Kategoria;
             Collection<Kategoria> kategorie = Kategorie.Instance.ListaKategorii;
+            if (kategoria == null)
+                return 0;
             for (int i = 0; i < kategorie.Count; i++)
                 if (kategorie[i].Nazwa.Equals(kategoria.Nazwa))
                     return i;

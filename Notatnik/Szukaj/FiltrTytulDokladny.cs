@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notatnik.Szukaj
+namespace Notatnik
 {
     public class FiltrTytulDokladny : FiltrDecorator
     {
         public FiltrTytulDokladny(IFiltr filtr) : base(filtr) { }
 
-        public new bool CzyPasuje(INotatka notatka)
+        public override bool CzyPasuje(INotatka notatka)
         {
-            return filtr.CzyPasuje(notatka); // na później
+            if (!notatka.Tytul.Equals(Tytul))
+                return false;
+            return filtr.CzyPasuje(notatka);
         }
     }
 }

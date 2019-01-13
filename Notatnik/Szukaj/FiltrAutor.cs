@@ -10,8 +10,10 @@ namespace Notatnik
     {
         public FiltrAutor(IFiltr filtr) : base(filtr) { }
 
-        public new bool CzyPasuje(INotatka notatka)
+        public override bool CzyPasuje(INotatka notatka)
         {
+            if (!notatka.Autor.Equals(filtr.Autor))
+                return false;
             return filtr.CzyPasuje(notatka);
         }
     }

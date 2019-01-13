@@ -193,10 +193,11 @@ namespace Notatnik
             if (btnWyszukaj.IsChecked == true)
             {
                 SzukajWindow noweOkno = new SzukajWindow();
-                Filtr nowyFiltr = new Filtr();
+                IFiltr nowyFiltr = new Filtr();
                 noweOkno.AktywnyFiltr = nowyFiltr;
                 if (noweOkno.ShowDialog() == true)
                 {
+                    nowyFiltr = noweOkno.AktywnyFiltr;
                     View.Filter = delegate (object item)
                     {
                         INotatka notatka = item as INotatka;

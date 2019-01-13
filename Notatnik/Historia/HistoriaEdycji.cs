@@ -12,7 +12,7 @@ namespace Notatnik
     public class HistoriaEdycji
     {
         private const int MAX_SIZE = 10;
-        public WpisyCollection Wpisy { get; }
+        public WpisyCollection Wpisy { get; set; }
         
         public HistoriaEdycji()
         {

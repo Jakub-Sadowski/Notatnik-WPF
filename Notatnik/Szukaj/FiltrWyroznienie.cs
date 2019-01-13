@@ -10,8 +10,10 @@ namespace Notatnik
     {
         public FiltrWyroznienie(IFiltr filtr) : base(filtr) { }
 
-        public new bool CzyPasuje(INotatka notatka)
+        public override bool CzyPasuje(INotatka notatka)
         {
+            if (notatka.Wyroznienie != Wyroznienie)
+                return false;
             return filtr.CzyPasuje(notatka);
         }
     }
