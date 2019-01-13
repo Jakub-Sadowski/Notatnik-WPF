@@ -23,6 +23,7 @@ namespace Notatnik
             Kategoria = notatka.Kategoria;
             DataModyfikacji = notatka.DataModyfikacji;
         }
+        
 
         public override string ToString()
         {

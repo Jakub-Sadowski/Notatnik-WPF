@@ -22,9 +22,7 @@ namespace Notatnik
             return Nazwa;
         }
 
-        public Kategoria Clone()
-        {
-            return this;
-        }
+        public abstract Kategoria Clone();
+        
     }
 }

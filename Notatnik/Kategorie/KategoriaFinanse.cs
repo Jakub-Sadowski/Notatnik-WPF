@@ -14,5 +14,9 @@ namespace Notatnik
             Nazwa = "Finanse";
             Kolor = new SolidColorBrush(Colors.Purple);
         }
+        public override Kategoria Clone()
+        {
+            return this.MemberwiseClone() as Kategoria;
+        }
     }
 }

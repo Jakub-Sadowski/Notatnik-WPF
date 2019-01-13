@@ -14,5 +14,9 @@ namespace Notatnik
             Nazwa = "Osobiste";
             Kolor = new SolidColorBrush(Colors.Blue);
         }
+        public override Kategoria Clone()
+        {
+            return this.MemberwiseClone() as Kategoria;
+        }
     }
 }

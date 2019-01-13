@@ -14,5 +14,9 @@ namespace Notatnik
             Nazwa = "Plany";
             Kolor = new SolidColorBrush(Colors.Green);
         }
+        public override Kategoria Clone()
+        {
+            return this.MemberwiseClone() as Kategoria;
+        }
     }
 }

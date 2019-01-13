@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.Windows;
 using System.Windows.Documents;
@@ -39,7 +40,23 @@ namespace Notatnik
 
         public void WczytajStanZHistorii(int pozycja)
         {
-            // ... 
+
+            if (HistoriaEdycji.Wpisy.Count <= pozycja)
+                 Console.WriteLine("Podana pozycja nie istnieje");
+            IEnumerator en = HistoriaEdycji.Wpisy.GetEnumerator();
+            for (int x = 0; x <= pozycja; x++)
+            {
+                if (x == pozycja)
+                {
+                    WpisHistorii wpis=(WpisHistorii) en.Current;
+                    this.Tekst = wpis.Tekst;
+                    this.Kategoria = wpis.Kategoria;
+                    this.DataModyfikacji = wpis.DataModyfikacji;
+                    this.Tytul = wpis.Tytul;
+                    this.Autor = wpis.Autor;
+                }
+                en.MoveNext();
+            }
         }
 
         public static void PrzepiszTekst(FlowDocument from, FlowDocument to)

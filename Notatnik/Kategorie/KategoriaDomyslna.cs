@@ -14,5 +14,9 @@ namespace Notatnik
             Nazwa = "Brak";
             Kolor = new SolidColorBrush(Colors.Gray);
         }
+        public override Kategoria Clone()
+        {
+           return this.MemberwiseClone() as Kategoria;
+        }
     }
 }

@@ -82,6 +82,8 @@ namespace Notatnik
                 if (notatka == null)
                     notatka = new Notatka(kategorie);
                 notatka.Kategoria = value;
+                Kategoria klon = notatka.Kategoria.Clone() as Kategoria;
+                
             }
         }
 
