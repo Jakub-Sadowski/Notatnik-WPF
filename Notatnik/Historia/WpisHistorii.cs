@@ -15,9 +15,12 @@ namespace Notatnik
         public Kategoria Kategoria { get; set; }
         public DateTime DataModyfikacji { get; set; }
 
+        public WpisHistorii() { }
+
         public WpisHistorii(INotatka notatka)
         {
-            Tekst = notatka.Tekst;
+            Tekst = new FlowDocument();
+            Notatka.PrzepiszTekst(notatka.Tekst, Tekst);
             Tytul = notatka.Tytul;
             Autor = notatka.Autor;
             Kategoria = notatka.Kategoria;

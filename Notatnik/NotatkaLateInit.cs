@@ -131,10 +131,10 @@ namespace Notatnik
                 notatka.ZapiszStanDoHistorii();
         }
 
-        public void WczytajStanZHistorii(int pozycja)
+        public void WczytajStanZHistorii(WpisHistorii wpis)
         {
             if (notatka != null)
-                notatka.WczytajStanZHistorii(pozycja);
+                notatka.WczytajStanZHistorii(wpis);
         }
 
         public NotatkaLateInit() { kategorie = Kategorie.Instance; }

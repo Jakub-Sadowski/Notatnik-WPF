@@ -50,7 +50,7 @@ namespace Notatnik
             {
                 MessageBoxResult result = MessageBox.Show("Czy chcesz zapisać przed zamknięciem?", "Zamknij", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
-                    AktualizujZrodlo();
+                    AktualizujZrodlo(DateTime.Now);
 
                 if (result == MessageBoxResult.Cancel)
                     e.Cancel = true;
@@ -84,18 +84,27 @@ namespace Notatnik
             edited = true;
         }
 
-        private void AktualizujZrodlo()
+        private void AktualizujZrodlo(DateTime dataModyfikacji)
         {
-            AktywnaNotatka.DataModyfikacji = DateTime.Now;
+            AktywnaNotatka.DataModyfikacji = dataModyfikacji;
             tbxTytul.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             tbxAutor.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             AktywnaNotatka.Kategoria = kategorie.GetKategoria(cbxKategoria.SelectedIndex);
             Notatka.PrzepiszTekst(tekstKopia, AktywnaNotatka.Tekst);
         }
 
+        private void AktualizujKontrolki()
+        {
+            tbxTytul.GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+            tbxAutor.GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+            cbxKategoria.GetBindingExpression(ComboBox.SelectedIndexProperty).UpdateTarget();
+            Notatka.PrzepiszTekst(AktywnaNotatka.Tekst, tekstKopia);
+        }
+
         private void MySave(object sender, ExecutedRoutedEventArgs e)
         {
-            AktualizujZrodlo();
+            AktualizujZrodlo(DateTime.Now);
+            AktywnaNotatka.ZapiszStanDoHistorii();
             edited = false;
         }
 
@@ -143,7 +152,7 @@ namespace Notatnik
                 dlg.Filter = "Xaml (*.xaml)|*.xaml|Wszystkie pliki (*.*)|*.*";
                 if (dlg.ShowDialog() == true)
                 {
-                    AktualizujZrodlo();
+                    AktualizujZrodlo(DateTime.Now);
                     edited = false;
                     FileStream fileStream = File.Open(dlg.FileName, FileMode.Create);
                     XamlWriter.Save(AktywnaNotatka, fileStream);
@@ -160,7 +169,10 @@ namespace Notatnik
             if (noweOkno.ShowDialog() == true)
             {
                 WpisHistorii wpis = noweOkno.lbxHistoria.SelectedItem as WpisHistorii;
-                // przywrócenie stanu
+                AktywnaNotatka.WczytajStanZHistorii(wpis);
+                AktualizujKontrolki();
+                AktualizujZrodlo(wpis.DataModyfikacji);
+                edited = false;
             }
         }
     }

@@ -19,6 +19,6 @@ namespace Notatnik
 
         HistoriaEdycji HistoriaEdycji { get; set; }
         void ZapiszStanDoHistorii();
-        void WczytajStanZHistorii(int pozycja);
+        void WczytajStanZHistorii(WpisHistorii wpis);
     }
 }

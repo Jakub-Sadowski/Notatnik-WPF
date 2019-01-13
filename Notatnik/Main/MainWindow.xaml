@@ -80,7 +80,7 @@
                     </ComboBox>
                 </ToolBar>
             </ToolBarTray>
-            <ContentControl Grid.Row="2" ContentTemplate="{StaticResource SzczegolyTemplate}" HorizontalAlignment="Center" />
+            <ContentControl Name="ccSzczegoly" Grid.Row="2" ContentTemplate="{StaticResource SzczegolyTemplate}" HorizontalAlignment="Center" />
         </Grid>
     </Border>
 </Window>

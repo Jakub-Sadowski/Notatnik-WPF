@@ -11,7 +11,8 @@ namespace Notatnik
 
     public class HistoriaEdycji
     {
-        public WpisyCollection Wpisy { get; set; }
+        private const int MAX_SIZE = 10;
+        public WpisyCollection Wpisy { get; }
         
         public HistoriaEdycji()
         {
@@ -21,6 +22,8 @@ namespace Notatnik
         public void DodajWpis(WpisHistorii wpis)
         {
             Wpisy.Add(wpis);
+            if (Wpisy.Count > MAX_SIZE)
+                Wpisy.RemoveAt(0);
         }
     }
 }

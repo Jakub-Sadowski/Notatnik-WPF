@@ -219,5 +219,10 @@ namespace Notatnik
             else
                 e.CanExecute = true;
         }
+
+        public void AktualizujKontrolki()
+        {
+            //tbDataModyfikacji.
+        }
     }
 }
