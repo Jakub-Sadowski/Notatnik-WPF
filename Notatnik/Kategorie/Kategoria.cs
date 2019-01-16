@@ -14,7 +14,19 @@ namespace Notatnik
 
         public int PozycjaNotatki(Notatka notatka, Data data) // Flyweight - stan zewnętrzny
         {
-            return 0; // na później
+            int licznik=0;
+
+            for (int i = 0; i < data.Notatki.count(); i++) {             
+                if(data.Notatki[i].Kategoria.Nazwa==this.Nazwa){
+                                                         licznik++;
+                                                         }
+                                                              if(this.Nazwa==notatka.Nazwa){
+                                                                                                 return licznik;
+                                                                                                         }
+
+                                        }
+
+            
         }
 
         public override string ToString()
