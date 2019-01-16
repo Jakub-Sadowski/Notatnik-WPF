@@ -1,249 +1,380 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Notatnik.Filtr" BaseTypeListCollapsed="true">
-    <Position X="14" Y="3.25" Width="1.5" />
+  <Class Name="Notatnik.BoolToBrushConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>hjwAAAAQQAAAAzQgCAAAAABBBAAhAAAIADIAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAIAAAAAABAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BoolToBrushConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.BoolToVisibilityConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\BoolToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.CathegoryToBrushConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\CathegoryToBrushConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.CathegoryToPositionConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\CathegoryToPositionConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.CathegoryToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\CathegoryToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.NoAuthorConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\NoAuthorConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.NoTitleConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\NoTitleConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.SelectionToVisibilityConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\SelectionToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.ToFirstLetterConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ToFirstLetterConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.XamlToImageConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="38" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\XamlToImageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.EdycjaCommands" Collapsed="true">
+    <Position X="32.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAACAAAAAoACABKAAgAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Edycja\EdycjaCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.EdycjaWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAQAAAAgAACAAiAAABCBAAAgAAAAEFCGDBAAA=</HashCode>
+      <FileName>Edycja\EdycjaWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.HistoriaCommands" Collapsed="true">
+    <Position X="38" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAQAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Historia\HistoriaCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.WpisyCollection" Collapsed="true">
+    <Position X="36.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Historia\HistoriaEdycji.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.HistoriaEdycji" Collapsed="true">
+    <Position X="39.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Historia\HistoriaEdycji.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.HistoriaWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAACAAAAAAAAAEAAAIAACAAAAAAAA=</HashCode>
+      <FileName>Historia\HistoriaWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.WpisHistorii" Collapsed="true">
+    <Position X="34.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAADAEAAAAAAAAAAQAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Historia\WpisHistorii.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.Kategoria" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgIIAAABA=</HashCode>
+      <FileName>Kategorie\Kategoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.KategoriaDomyslna" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Kategorie\KategoriaDomyslna.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.KategoriaFinanse" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Kategorie\KategoriaFinanse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.KategoriaOsobiste" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Kategorie\KategoriaOsobiste.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.KategoriaPlany" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Kategorie\KategoriaPlany.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.KategoriaPraca" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Kategorie\KategoriaPraca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.Kategorie" Collapsed="true">
+    <Position X="32.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQCAQAAAAgAA=</HashCode>
+      <FileName>Kategorie\Kategorie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.MainCommands" Collapsed="true">
+    <Position X="34.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAAgAAAAAAAAAAAAAAQAAAAEABIACACSAAgAiAAA=</HashCode>
+      <FileName>Main\MainCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CABQAMAAAgAAAACQAAQwAAAIAAABAIQAAABQgAQAAAA=</HashCode>
+      <FileName>Main\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.PodgladWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Podglad\PodgladWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.Filtr" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="36.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCwBAAAAAAAAADAAAAAAAAAAAAAhAAAAABAAAAACAAI=</HashCode>
       <FileName>Szukaj\Filtr.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Notatnik.FiltrAutor">
-    <Position X="20.5" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrAutor" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrAutor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrDataModyfikacjiDo">
-    <Position X="25" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrDataModyfikacjiDo" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrDataModyfikacjiDo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrDataModyfikacjiOd">
-    <Position X="31.75" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrDataModyfikacjiOd" Collapsed="true">
+    <Position X="21.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrDataModyfikacjiOd.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrDataUtworzeniaDo">
-    <Position X="36.25" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrDataModyfikacjiZakres" Collapsed="true">
+    <Position X="26.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Szukaj\FiltrDataModyfikacjiZakres.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.FiltrDataUtworzeniaDo" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrDataUtworzeniaDo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrDataUtworzeniaOd">
-    <Position X="40.75" Y="3.75" Width="1.5" />
-    <InheritanceLine Type="Notatnik.FiltrDecorator" ManuallyRouted="true" FixedToPoint="true">
-      <Path>
-        <Point X="18.75" Y="3.25" />
-        <Point X="18.75" Y="2.875" />
-        <Point X="41.312" Y="2.875" />
-        <Point X="41.312" Y="3.75" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="Notatnik.FiltrDataUtworzeniaOd" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrDataUtworzeniaOd.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrDecorator">
-    <Position X="18" Y="3.25" Width="1.5" />
+  <Class Name="Notatnik.FiltrDataUtworzeniaZakres" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>hjwAAAAQQAAAAzQgAAAAAABBBAAhAAAIADIAAAAAAAI=</HashCode>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Szukaj\FiltrDataUtworzeniaZakres.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.FiltrDecorator" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCwBAAAAAAAAADAAAAAAAAAAAAAhAAAAADAAAAACAAI=</HashCode>
       <FileName>Szukaj\FiltrDecorator.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="filtr" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Notatnik.FiltrKategoria">
-    <Position X="22.75" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrKategoria" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrKategoria.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrSlowaKluczoweJakiekolwiek">
-    <Position X="27.25" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrSlowaKluczoweJakiekolwiek" Collapsed="true">
+    <Position X="19.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrSlowaKluczoweJakiekolwiek.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrSlowaKluczoweWszystkie">
-    <Position X="34" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrSlowaKluczoweWszystkie" Collapsed="true">
+    <Position X="24" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrSlowaKluczoweWszystkie.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notatnik.FiltrTytulZawiera">
-    <Position X="38.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>Szukaj\FiltrTytulZawiera.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.FiltrWyroznienie">
-    <Position X="43" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>Szukaj\FiltrWyroznienie.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.Data">
-    <Position X="35.25" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAQAAAAAAQAAQAAAAAAA=</HashCode>
-      <FileName>Data.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="singleton" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="data" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="Notatnik.HistoriaEdycji">
-    <Position X="37.25" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>HistoriaEdycji.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Wpisy" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="Notatnik.Kategoria">
-    <Position X="24.25" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgIIAAABA=</HashCode>
-      <FileName>Kategoria.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.KategoriaDomyslna">
-    <Position X="28.75" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KategoriaDomyslna.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.KategoriaFinanse">
-    <Position X="19.75" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KategoriaFinanse.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.KategoriaOsobiste">
-    <Position X="22" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KategoriaOsobiste.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.KategoriaPlany">
-    <Position X="24.25" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KategoriaPlany.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.KategoriaPraca">
-    <Position X="26.5" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KategoriaPraca.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.Kategorie">
-    <Position X="20.5" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQCAQAAAAgAA=</HashCode>
-      <FileName>Kategorie.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="singleton" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="ListaKategorii" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="Notatnik.Notatka" BaseTypeListCollapsed="true">
-    <Position X="30.5" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgAAEAAAAAAADAEAAAAAAAAIAQgAAAAAAAAAQEAACA=</HashCode>
-      <FileName>Notatka.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Kategoria" />
-      <Property Name="HistoriaEdycji" />
-    </ShowAsAssociation>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Notatnik.NotatkaLateInit" BaseTypeListCollapsed="true">
-    <Position X="28.25" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgAAEAAAAAAADCEAAAgAAAAIAQgAAAAAAAAAQAAACA=</HashCode>
-      <FileName>NotatkaLateInit.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="notatka" />
-      <Field Name="kategorie" />
-      <Property Name="Kategoria" />
-      <Property Name="HistoriaEdycji" />
-    </ShowAsAssociation>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Notatnik.WpisHistorii">
-    <Position X="35" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAADAEAAAAAAAAAAQAAAAAAAAAAAAAACA=</HashCode>
-      <FileName>WpisHistorii.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Notatnik.Szukaj.FiltrTytulDokladny">
-    <Position X="29.5" Y="3.75" Width="1.5" />
+  <Class Name="Notatnik.FiltrTytulDokladny" Collapsed="true">
+    <Position X="28.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Szukaj\FiltrTytulDokladny.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Notatnik.IFiltr">
-    <Position X="16" Y="3.25" Width="1.5" />
+  <Class Name="Notatnik.FiltrTytulZawiera" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>hjwAAAAQQAAAAzQgAAAAAABBBAAhAAAIADIAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Szukaj\FiltrTytulZawiera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.FiltrWyroznienie" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Szukaj\FiltrWyroznienie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.SzukajCommands" Collapsed="true">
+    <Position X="39.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQA=</HashCode>
+      <FileName>Szukaj\SzukajCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.SzukajWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAAAAACAAAAAAAAAAAQAAAEAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Szukaj\SzukajWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.App" Collapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.NotatkiCollection" Collapsed="true">
+    <Position X="32.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.Data" Collapsed="true">
+    <Position X="31" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAABAAAAAAAAAQAAAAAAQAAQAABAAAE=</HashCode>
+      <FileName>Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notatnik.Notatka" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAEAAAAAAADAEAAAAAAAAIAQgAAAAAAAAAQEAACA=</HashCode>
+      <FileName>Notatka.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Notatnik.NotatkaLateInit" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAEAAAAAAADCEAAAgAAAAIAQgAAAAAAAAAQAAACA=</HashCode>
+      <FileName>NotatkaLateInit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Notatnik.IFiltr" Collapsed="true">
+    <Position X="18.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCwBAAAAAAAAADAAAAAAAAAAAAAhAAAAABAAAAACAAI=</HashCode>
       <FileName>Szukaj\IFiltr.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Notatnik.INotatka">
-    <Position X="32.5" Y="6" Width="1.5" />
-    <AssociationLine Name="Kategoria" Type="Notatnik.Kategoria" ManuallyRouted="true">
-      <Path>
-        <Point X="33.25" Y="6" />
-        <Point X="33.25" Y="5.864" />
-        <Point X="31.333" Y="5.864" Type="JumpStart" />
-        <Point X="31.167" Y="5.864" Type="JumpEnd" />
-        <Point X="29.083" Y="5.864" Type="JumpStart" />
-        <Point X="28.917" Y="5.864" Type="JumpEnd" />
-        <Point X="24.687" Y="5.864" />
-        <Point X="24.687" Y="6.5" />
-      </Path>
-    </AssociationLine>
+  <Interface Name="Notatnik.INotatka" Collapsed="true">
+    <Position X="32.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAEAAAAAAADAEAAAAAAAAIAQgAAAAAAAAAQAAACA=</HashCode>
       <FileName>INotatka.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Kategoria" />
-      <Property Name="HistoriaEdycji" />
-    </ShowAsAssociation>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

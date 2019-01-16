@@ -23,6 +23,5 @@ namespace Notatnik
         }
 
         public abstract Kategoria Clone();
-        
     }
 }

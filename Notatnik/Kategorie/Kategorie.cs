@@ -33,10 +33,7 @@ namespace Notatnik
 
         public Collection<Kategoria> ListaKategorii
         {
-            get
-            {
-                return data;
-            }
+            get { return data; }
         }
     }
 }

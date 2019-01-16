@@ -5,6 +5,10 @@ using System.Windows.Documents;
 
 namespace Notatnik
 {
+    /// <summary>
+    /// Główny obiekt filtru do sprawdzania, czy dana notatka spełnia podane warunki.
+    /// Przechowuje pola związane z kryteriami wyszukiwania.
+    /// </summary>
     public class Filtr : IFiltr
     {
         public string Tytul { get; set; }
@@ -23,7 +27,7 @@ namespace Notatnik
             Wyroznienie = true;
         }
 
-        public virtual bool CzyPasuje(INotatka notatka)
+        public bool CzyPasuje(INotatka notatka)
         {
             return true; 
         }

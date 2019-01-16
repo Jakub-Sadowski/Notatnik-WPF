@@ -17,6 +17,12 @@ namespace Notatnik
 
         public WpisHistorii() { }
 
+        /// <summary>
+        /// Tworzy nowy obiekt pamiątki.
+        /// </summary>
+        /// <param name="notatka">
+        /// Z parametru pobierany jest stan zapisywany w pamiątce.
+        /// </param>
         public WpisHistorii(INotatka notatka)
         {
             Tekst = new FlowDocument();
@@ -27,7 +33,12 @@ namespace Notatnik
             DataModyfikacji = notatka.DataModyfikacji;
         }
         
-
+        /// <summary>
+        /// Tekstowa reprezentacja obiektu.
+        /// </summary>
+        /// <returns>
+        /// Data modyfikacji przekonwertowana do typu string.
+        /// </returns>
         public override string ToString()
         {
             return DataModyfikacji.ToString();

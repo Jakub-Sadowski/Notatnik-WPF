@@ -1,4 +1,5 @@
-﻿<Window x:Class="Notatnik.MainWindow"
+﻿
+    <Window x:Class="Notatnik.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,6 +20,14 @@
         <CommandBinding Command="local:MainCommands.ShowFavorites" Executed="MyShowFavorites" CanExecute="MyShowFavoritesCanExecute" />
         <CommandBinding Command="local:MainCommands.Search" Executed="MySearch" CanExecute="MySearchCanExecute" />
     </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="local:MainCommands.Add" Key="A" Modifiers="Ctrl" />
+        <KeyBinding Command="local:MainCommands.Delete" Key="D" Modifiers="Ctrl" />
+        <KeyBinding Command="local:MainCommands.Edit" Key="E" Modifiers="Ctrl" />
+        <KeyBinding Command="local:MainCommands.Preview" Key="P" Modifiers="Ctrl" />
+        <KeyBinding Command="local:MainCommands.Favorite" Key="H" Modifiers="Ctrl" />
+        <KeyBinding Command="local:MainCommands.Search" Key="F" Modifiers="Ctrl" />
+    </Window.InputBindings>
     <Border Style="{StaticResource MainBorderStyle}">
         <Grid DataContext="{Binding ElementName=lbxData, Path=SelectedItem}">
             <Grid.ColumnDefinitions>

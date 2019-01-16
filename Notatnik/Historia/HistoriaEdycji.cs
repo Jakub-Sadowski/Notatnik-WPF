@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace Notatnik
 {
-    public class WpisyCollection : Collection<WpisHistorii> { }
+    /// <summary>
+    /// Klasa dziedzicząca z kolekcji wpisów. Konieczna do serializacji.
+    /// </summary>
+    public class WpisyCollection : ObservableCollection<WpisHistorii> { }
 
+    /// <summary>
+    /// Przechowuje do 10 obiektów pamiątek (wpisów). 
+    /// Po przekroczeniu tej wartości usuwa stare wpisy.
+    /// Powiązana jest z konkretnym obiektem Notatki.
+    /// </summary>
     public class HistoriaEdycji
     {
         private const int MAX_SIZE = 10;

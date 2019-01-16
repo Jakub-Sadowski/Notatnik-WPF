@@ -14,6 +14,9 @@ namespace Notatnik
 {
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Aktualny widok listy notatek w głównej kontrolce.
+        /// </summary>
         private ListCollectionView View
         {
             get
@@ -41,65 +44,81 @@ namespace Notatnik
             lbxData.ItemsSource = data.Notatki;
         }
 
+        /// <summary>
+        /// Zapisuje dane przed zamknięciem aplikacji.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             data.SaveAll();
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Sortowanie danych w kontrolce przy pomocy widoku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Sort(object sender, RoutedEventArgs e)
         {
-            if (View != null)
+            if (View == null)
+                return;
+            View.SortDescriptions.Clear();
+            ListSortDirection sortDirection;
+
+            if (cbiClearSort.IsSelected)
             {
-                View.SortDescriptions.Clear();
-                ListSortDirection sortDirection;
+                rbRosnaco.IsEnabled = false;
+                rbMalejaco.IsEnabled = false;
+            }
+            else
+            {
+                rbRosnaco.IsEnabled = true;
+                rbMalejaco.IsEnabled = true;
 
-                if (cbiClearSort.IsSelected)
-                {
-                    rbRosnaco.IsEnabled = false;
-                    rbMalejaco.IsEnabled = false;
-                }
+                if (rbRosnaco.IsChecked == true)
+                    sortDirection = ListSortDirection.Ascending;
                 else
-                {
-                    rbRosnaco.IsEnabled = true;
-                    rbMalejaco.IsEnabled = true;
+                    sortDirection = ListSortDirection.Descending;
 
-                    if (rbRosnaco.IsChecked == true)
-                        sortDirection = ListSortDirection.Ascending;
-                    else
-                        sortDirection = ListSortDirection.Descending;
-
-                    if (cbiSortByCreationDate.IsSelected)
-                        View.SortDescriptions.Add(new SortDescription("DataUtworzenia", sortDirection));
-                    else if (cbiSortByModifyDate.IsSelected)
-                        View.SortDescriptions.Add(new SortDescription("DataModyfikacji", sortDirection));
-                    else if (cbiSortByTitle.IsSelected)
-                        View.SortDescriptions.Add(new SortDescription("Tytul", sortDirection));
-                }
+                if (cbiSortByCreationDate.IsSelected)
+                    View.SortDescriptions.Add(new SortDescription("DataUtworzenia", sortDirection));
+                else if (cbiSortByModifyDate.IsSelected)
+                    View.SortDescriptions.Add(new SortDescription("DataModyfikacji", sortDirection));
+                else if (cbiSortByTitle.IsSelected)
+                    View.SortDescriptions.Add(new SortDescription("Tytul", sortDirection));
             }
         }
 
+        /// <summary>
+        /// Grupowanie danych w kontrolce przy pomocy widoku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Group(object sender, RoutedEventArgs e)
         {
-            if (View != null)
+            if (View == null)
+                return;
+            View.GroupDescriptions.Clear();
+            if (!cbiClearGroup.IsSelected)
             {
-                View.GroupDescriptions.Clear();
-                if (!cbiClearGroup.IsSelected)
+                if (cbiGroupByTitle.IsSelected)
                 {
-                    if (cbiGroupByTitle.IsSelected)
-                    {
-                        View.SortDescriptions.Clear();
-                        View.SortDescriptions.Add(new SortDescription("Tytul", ListSortDirection.Ascending));
-                        View.GroupDescriptions.Add(new PropertyGroupDescription("Tytul", new ToFirstLetterConverter()));
-                    }
-                    else if (cbiGroupByAuthor.IsSelected)
-                        View.GroupDescriptions.Add(new PropertyGroupDescription("Autor", new NoAuthorConverter()));
-                    else if (cbiGroupByCathegory.IsSelected)
-                        View.GroupDescriptions.Add(new PropertyGroupDescription("Kategoria", new CathegoryToStringConverter()));
+                    View.SortDescriptions.Clear();
+                    View.SortDescriptions.Add(new SortDescription("Tytul", ListSortDirection.Ascending));
+                    View.GroupDescriptions.Add(new PropertyGroupDescription("Tytul", new ToFirstLetterConverter()));
                 }
+                else if (cbiGroupByAuthor.IsSelected)
+                    View.GroupDescriptions.Add(new PropertyGroupDescription("Autor", new NoAuthorConverter()));
+                else if (cbiGroupByCathegory.IsSelected)
+                    View.GroupDescriptions.Add(new PropertyGroupDescription("Kategoria", new CathegoryToStringConverter()));
             }
         }
 
+        /// <summary>
+        /// Wyświetla komunikat dotyczący wyszukiwania.
+        /// </summary>
         private void PokazWynikiWyszukiwania()
         {
             string ilosc = View.Count.ToString();
@@ -121,6 +140,11 @@ namespace Notatnik
             MessageBox.Show("Znaleziono " + ilosc + deklinacja, "Wyniki", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        /// <summary>
+        /// Uaktywnia niektóre przyciski, jeśli jakakolwiek notatka została zaznaczona.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectedCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             if ((lbxData == null) || (lbxData.SelectedItem == null))
@@ -129,6 +153,11 @@ namespace Notatnik
                 e.CanExecute = true;
         }
 
+        /// <summary>
+        /// Dodaje nową notatkę do listy.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyAdd(object sender, ExecutedRoutedEventArgs e)
         {
             EdycjaWindow noweOkno = new EdycjaWindow(kategorie);
@@ -136,10 +165,13 @@ namespace Notatnik
             data.Notatki.Add(nowaNotatka);
 
             lbxData.SelectedIndex = lbxData.Items.Count - 1;
-            //noweOkno.AktywnaNotatka = nowaNotatka;
-            //noweOkno.ShowDialog();
         }
 
+        /// <summary>
+        /// Usuwa zaznaczoną notatkę z listy.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyDelete(object sender, ExecutedRoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Czy napewno chcesz usunąć zaznaczony element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -150,6 +182,11 @@ namespace Notatnik
             }
         }
 
+        /// <summary>
+        /// Otwiera okno edycji powiązane z zaznaczoną notatką.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyEdit(object sender, ExecutedRoutedEventArgs e)
         {
             oknoEdycji = new EdycjaWindow(kategorie);
@@ -158,6 +195,11 @@ namespace Notatnik
             oknoEdycji.Show();
         }
 
+        /// <summary>
+        /// Otwiera okno podglądu związane z zaznaczoną notatką.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyPreview(object sender, ExecutedRoutedEventArgs e)
         {
             oknoPodgladu = new PodgladWindow();
@@ -166,6 +208,11 @@ namespace Notatnik
             oknoPodgladu.Show();
         }
 
+        /// <summary>
+        /// Filtruje notatki, zostawiając tylko te, które zostały wyróżnione.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyShowFavorites(object sender, ExecutedRoutedEventArgs e)
         {
             if (btnWyroznione.IsChecked == true)
@@ -185,9 +232,15 @@ namespace Notatnik
             if ((btnWyszukaj == null) || (btnWyszukaj.IsChecked == true))
                 e.CanExecute = false;
             else
-                e.CanExecute = true; 
+                e.CanExecute = true;
         }
 
+        /// <summary>
+        /// Otwiera okno wyszukiwania do zbudowania obiektu Filtru.
+        /// Filtruje notatki, zostawiając tylko te spełniające kryteria.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MySearch(object sender, ExecutedRoutedEventArgs e)
         {
             if (btnWyszukaj.IsChecked == true)
@@ -219,11 +272,6 @@ namespace Notatnik
                 e.CanExecute = false;
             else
                 e.CanExecute = true;
-        }
-
-        public void AktualizujKontrolki()
-        {
-            //tbDataModyfikacji.
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notatnik"
         mc:Ignorable="d"
-        Title="PodgladWindow" Height="500" Width="420" Loaded="PodgladWindow_Loaded" Style="{StaticResource WindowStyle}">
+        Title="Podgląd" Height="500" Width="420" Loaded="PodgladWindow_Loaded" Style="{StaticResource WindowStyle}">
     <Border Style="{StaticResource MainBorderStyle}">
         <Grid DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=AktywnaNotatka, Mode=TwoWay}">
             <Grid.ColumnDefinitions>

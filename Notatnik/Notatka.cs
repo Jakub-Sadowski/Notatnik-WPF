@@ -10,6 +10,7 @@ namespace Notatnik
     public class Notatka : INotatka
     {
         public FlowDocument Tekst { get; set; }
+
         public string Tytul { get; set; }
         public string Autor { get; set; }
         public Kategoria Kategoria { get; set; }
@@ -20,6 +21,12 @@ namespace Notatnik
 
         public HistoriaEdycji HistoriaEdycji { get; set; }
 
+        /// <summary>
+        /// Tworzenie głównej instancji pustej notatki.
+        /// </summary>
+        /// <param name="kategorie">
+        /// Obiekt, z którego notatka ma pobrać pulę dostępnych kategorii.
+        /// </param>
         public Notatka(Kategorie kategorie)
         {
             Wyroznienie = false;
@@ -47,6 +54,15 @@ namespace Notatnik
             this.Autor = wpis.Autor;
         }
 
+        /// <summary>
+        /// Tworzenie kopii głębokiej dokumentu typu FlowDocument - skopiowanie jego treści.
+        /// </summary>
+        /// <param name="from">
+        /// Dokument, z którego ma być pobrana treść.
+        /// </param>
+        /// <param name="to">
+        /// Dokument, do którego ma być zapisana treść.
+        /// </param>
         public static void PrzepiszTekst(FlowDocument from, FlowDocument to)
         {
             TextRange range1, range2;
@@ -57,6 +73,12 @@ namespace Notatnik
             range2.Load(stream, DataFormats.XamlPackage);
         }
 
+        /// <summary>
+        /// Tekstowa reprezentacja obiektu.
+        /// </summary>
+        /// <returns>
+        /// Tytuł notatki.
+        /// </returns>
         public override string ToString()
         {
             if (Tytul == null) return "";

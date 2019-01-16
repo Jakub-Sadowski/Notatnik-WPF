@@ -7,9 +7,21 @@ using System.Windows.Documents;
 
 namespace Notatnik
 {
+    /// <summary>
+    /// Proxy do obiektu klasy Notatka, zapewniająca późną inicjalizację.
+    /// Gettery pól zwracają albo puste obiekty, albo placeholdery.
+    /// Istotna instancja klasy Notatka utworzona zostanie dopiero po wywołaniu któregoś z setterów.
+    /// </summary>
     public class NotatkaLateInit : INotatka
     {
+        /// <summary>
+        /// Obiekt docelowy, początkowo niezainicjalizowany.
+        /// </summary>
         private Notatka notatka;
+
+        /// <summary>
+        /// Pula kategorii.
+        /// </summary>
         private Kategorie kategorie;
 
         public NotatkaLateInit(Kategorie kategorie)
@@ -17,7 +29,7 @@ namespace Notatnik
             this.kategorie = kategorie;
             DataUtworzenia = DateTime.Now;
         }
-        
+
         public FlowDocument Tekst
         {
             get
@@ -138,5 +150,10 @@ namespace Notatnik
         }
 
         public NotatkaLateInit() { kategorie = Kategorie.Instance; }
+
+        public override string ToString()
+        {
+            return Tytul;
+        }
     }
 }

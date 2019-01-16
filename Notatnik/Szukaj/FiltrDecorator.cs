@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace Notatnik
 {
+    /// <summary>
+    /// Abstrakcyjna klasa bazowa dekoratorów obiektu Filtru.
+    /// Każdy dekorator odpowiada za sprawdzenie innego kryterium.
+    /// </summary>
     public abstract class FiltrDecorator : IFiltr
     {
+        /// <summary>
+        /// Obiekt dekorowany.
+        /// </summary>
         protected IFiltr filtr;
 
         public FiltrDecorator(IFiltr filtr) { this.filtr = filtr; }

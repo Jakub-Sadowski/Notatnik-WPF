@@ -19,14 +19,26 @@ namespace Notatnik
             cbxKategoria.SelectedItem = Kategorie.Instance.ListaKategorii[0];
         }
 
+        /// <summary>
+        /// Pokazuje komunikat o błędzie.
+        /// </summary>
+        /// <param name="tresc">
+        /// Treść komunikatu.
+        /// </param>
         private void PokazKomunikat(string tresc)
         {
             MessageBox.Show(tresc, "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
+        /// <summary>
+        /// Sprawdza zaznaczone przez użytkownika kryteria i buduje obiekt Filtru.
+        /// Wyświetla ewentualny komunikat o nieprawidłowych danych.
+        /// Następuje tu udekorowanie Filtru.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MyOk(object sender, ExecutedRoutedEventArgs e)
         {
-            /* udekorowanie filtra */
             if (cbxTytulWarunek.IsChecked == true)
             {
                 if (rbTytulDokladnyWarunek.IsChecked == true)
