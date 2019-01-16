@@ -19,6 +19,7 @@ namespace Notatnik
             for (int i = 0; i < data.Notatki.count(); i++) {             
                 if(data.Notatki[i].Kategoria.Nazwa==this.Nazwa){
                                                          licznik++;
+
                                                          }
                                                               if(this.Nazwa==notatka.Nazwa){
                                                                                                  return licznik;
