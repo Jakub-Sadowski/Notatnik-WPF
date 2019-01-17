@@ -7,27 +7,31 @@ using System.Windows.Media;
 
 namespace Notatnik
 {
+    /// <summary>
+    /// Abstrakcyjna klasa bazowa dla kategorii. Flyweight.
+    /// </summary>
     public abstract class Kategoria
     {
         public Brush Kolor { get; set; } // Flyweight - stan wewnętrzny
         public string Nazwa { get; set; } // Flyweight - stan wewnętrzny
 
-        public int PozycjaNotatki(Notatka notatka, Data data) // Flyweight - stan zewnętrzny
+        public int PozycjaNotatki(INotatka notatka, NotatkiData data) // Flyweight - stan zewnętrzny
         {
-            int licznik=0;
+            if (notatka.Kategoria.Nazwa != this.Nazwa)
+                return -1;
 
-            for (int i = 0; i < data.Notatki.count(); i++) {             
-                if(data.Notatki[i].Kategoria.Nazwa==this.Nazwa){
-                                                         licznik++;
+            int licznik = 0;
 
-                                                         }
-                                                              if(this.Nazwa==notatka.Nazwa){
-                                                                                                 return licznik;
-                                                                                                         }
-
-                                        }
-
-            
+            for (int i = 0; i < data.Notatki.Count; i++)
+            {
+                if (data.Notatki[i].Kategoria.Nazwa == this.Nazwa)
+                {
+                    licznik++;
+                    if (data.Notatki[i] == notatka)
+                        return licznik;
+                }
+            }
+            return -1;
         }
 
         public override string ToString()

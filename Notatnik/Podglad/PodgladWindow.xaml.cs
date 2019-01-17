@@ -9,10 +9,13 @@ namespace Notatnik
     public partial class PodgladWindow : Window
     {
         public INotatka AktywnaNotatka { get; set; }
-
-        public PodgladWindow()
+        
+        public PodgladWindow(NotatkiData data, INotatka notatka)
         {
             InitializeComponent();
+            NoteToCathegoryPositionConverter converter = (NoteToCathegoryPositionConverter)FindResource("NoteToCathegoryPositionConverter");
+            converter.Data = data;
+            AktywnaNotatka = notatka;
         }
 
         private void PodgladWindow_Loaded(object sender, RoutedEventArgs e)

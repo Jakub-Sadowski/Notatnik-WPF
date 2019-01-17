@@ -13,7 +13,7 @@ namespace Notatnik
     /// Przechowuje wszystkie dane w programie - listę notatek.
     /// Jest singletonem.
     /// </summary>
-    public class Data
+    public class NotatkiData
     {
         /// <summary>
         /// Nazwa pliku, w którym są przechowywane dane.
@@ -25,22 +25,22 @@ namespace Notatnik
         /// </summary>
         private NotatkiCollection data;
 
-        private Data()
+        private NotatkiData()
         {
             LoadAll();
         }
 
-        private static Data singleton = null;
+        private static NotatkiData singleton = null;
 
         /// <summary>
         /// Jedyna instancja tej klasy.
         /// </summary>
-        public static Data Instance
+        public static NotatkiData Instance
         {
             get
             {
                 if (singleton == null)
-                    singleton = new Data();
+                    singleton = new NotatkiData();
                 return singleton;
             }
         }

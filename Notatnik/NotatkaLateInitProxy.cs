@@ -12,7 +12,7 @@ namespace Notatnik
     /// Gettery pól zwracają albo puste obiekty, albo placeholdery.
     /// Istotna instancja klasy Notatka utworzona zostanie dopiero po wywołaniu któregoś z setterów.
     /// </summary>
-    public class NotatkaLateInit : INotatka
+    public class NotatkaLateInitProxy : INotatka
     {
         /// <summary>
         /// Obiekt docelowy, początkowo niezainicjalizowany.
@@ -24,7 +24,7 @@ namespace Notatnik
         /// </summary>
         private Kategorie kategorie;
 
-        public NotatkaLateInit(Kategorie kategorie)
+        public NotatkaLateInitProxy(Kategorie kategorie)
         {
             this.kategorie = kategorie;
             DataUtworzenia = DateTime.Now;
@@ -149,7 +149,7 @@ namespace Notatnik
                 notatka.WczytajStanZHistorii(wpis);
         }
 
-        public NotatkaLateInit() { kategorie = Kategorie.Instance; }
+        public NotatkaLateInitProxy() { kategorie = Kategorie.Instance; }
 
         public override string ToString()
         {

@@ -110,7 +110,8 @@
     </ApplicationDefinition>
     <Compile Include="Converters\CathegoryToPositionConverter.cs" />
     <Compile Include="Converters\CathegoryToStringConverter.cs" />
-    <Compile Include="Data.cs" />
+    <Compile Include="Converters\NoteToCathegoryPositionConverter.cs" />
+    <Compile Include="NotatkiData.cs" />
     <Compile Include="Edycja\EdycjaCommands.cs" />
     <Compile Include="Converters\CathegoryToBrushConverter.cs" />
     <Compile Include="Converters\NoAuthorConverter.cs" />
@@ -129,7 +130,7 @@
     <Compile Include="Kategorie\KategoriaOsobiste.cs" />
     <Compile Include="Kategorie\KategoriaPlany.cs" />
     <Compile Include="Kategorie\KategoriaPraca.cs" />
-    <Compile Include="NotatkaLateInit.cs" />
+    <Compile Include="NotatkaLateInitProxy.cs" />
     <Compile Include="Szukaj\Filtr.cs" />
     <Compile Include="Converters\NoTitleConverter.cs" />
     <Compile Include="Main\MainCommands.cs" />
@@ -298,7 +299,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DiagramKlas.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

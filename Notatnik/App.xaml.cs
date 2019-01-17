@@ -12,7 +12,7 @@ namespace Notatnik
         /// <param name="e"></param>
         void App_Startup(object sender, StartupEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(Kategorie.Instance, Data.Instance);
+            MainWindow mainWindow = new MainWindow(Kategorie.Instance, NotatkiData.Instance);
             mainWindow.Show();
         }
     }

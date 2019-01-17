@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notatnik"
         mc:Ignorable="d"
-        Title="Podgląd" Height="500" Width="420" Loaded="PodgladWindow_Loaded" Style="{StaticResource WindowStyle}">
+        Title="Podgląd" Height="500" Width="420" Loaded="PodgladWindow_Loaded" Style="{StaticResource WindowStyle}" Name="wndPodglad">
     <Border Style="{StaticResource MainBorderStyle}">
         <Grid DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=AktywnaNotatka, Mode=TwoWay}">
             <Grid.ColumnDefinitions>
@@ -48,6 +48,8 @@
                                     <TextBlock Margin="5" Grid.Column="1" Grid.Row="3" Text="{Binding Path=DataUtworzenia}" Visibility="{Binding ElementName=btnDataUtworzenia, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}" TextWrapping="Wrap" />
                                     <TextBlock Margin="5" FontWeight="Bold" Grid.Row="4" Visibility="{Binding ElementName=btnDataModyfikacji, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}" TextWrapping="Wrap">Data modyfikacji:</TextBlock>
                                     <TextBlock Margin="5" Grid.Column="1" Grid.Row="4" Text="{Binding Path=DataModyfikacji}" Visibility="{Binding ElementName=btnDataModyfikacji, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}" TextWrapping="Wrap" />
+                                    <TextBlock Margin="5" FontWeight="Bold" Grid.Row="5" Visibility="{Binding ElementName=btnPozycjaWKategorii, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}" TextWrapping="Wrap">Pozycja w kategorii</TextBlock>
+                                    <TextBlock Margin="5" Grid.Column="1" Grid.Row="5" Text="{Binding Converter={StaticResource NoteToCathegoryPositionConverter}}" Visibility="{Binding ElementName=btnPozycjaWKategorii, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}" TextWrapping="Wrap" />
                                 </Grid>
                                 <GridSplitter Margin="5" BorderThickness="1" BorderBrush="Gray" HorizontalAlignment="Stretch" />
                             </StackPanel>
@@ -62,6 +64,7 @@
                     <ToggleButton Name="btnKategoria" ToolTip="Kategoria" HorizontalAlignment="Stretch" Margin="3" Style="{StaticResource AnimatedButton}">Kategoria</ToggleButton>
                     <ToggleButton Name="btnDataUtworzenia" ToolTip="Data utworzenia" HorizontalAlignment="Stretch" Margin="3" Style="{StaticResource AnimatedButton}">Data utworzenia</ToggleButton>
                     <ToggleButton Name="btnDataModyfikacji" ToolTip="Data modyfikacji" HorizontalAlignment="Stretch" Margin="3" Style="{StaticResource AnimatedButton}">Data modyfikacji</ToggleButton>
+                    <ToggleButton Name="btnPozycjaWKategorii" ToolTip="Pozycja w kategorii" HorizontalAlignment="Stretch" Margin="3" Style="{StaticResource AnimatedButton}">Pozycja w kategorii</ToggleButton>
                     <Separator />
                     <TextBlock Margin="3" HorizontalAlignment="Center">Marginesy:</TextBlock>
                     <ComboBox Margin="3" ToolTip="Marginesy" Name="cbxMarginesy" HorizontalAlignment="Stretch" SelectedValue="{Binding ElementName=docTekst, Path=PagePadding, Mode=TwoWay}" />

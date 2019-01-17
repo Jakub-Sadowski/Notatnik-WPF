@@ -10,4 +10,5 @@
     <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     <local:CathegoryToStringConverter x:Key="CathegoryToStringConverter" />
     <local:CathegoryToPositionConverter x:Key="CathegoryToPositionConverter" />
+    <local:NoteToCathegoryPositionConverter x:Key="NoteToCathegoryPositionConverter" />
 </ResourceDictionary>

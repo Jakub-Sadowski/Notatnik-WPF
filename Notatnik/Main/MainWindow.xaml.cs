@@ -29,10 +29,10 @@ namespace Notatnik
 
         private PodgladWindow oknoPodgladu;
         private EdycjaWindow oknoEdycji;
-        private Data data;
+        private NotatkiData data;
         private Kategorie kategorie;
 
-        public MainWindow(Kategorie kategorie, Data data)
+        public MainWindow(Kategorie kategorie, NotatkiData data)
         {
             InitializeComponent();
             this.kategorie = kategorie;
@@ -161,7 +161,7 @@ namespace Notatnik
         private void MyAdd(object sender, ExecutedRoutedEventArgs e)
         {
             EdycjaWindow noweOkno = new EdycjaWindow(kategorie);
-            INotatka nowaNotatka = new NotatkaLateInit(kategorie);
+            INotatka nowaNotatka = new NotatkaLateInitProxy(kategorie);
             data.Notatki.Add(nowaNotatka);
 
             lbxData.SelectedIndex = lbxData.Items.Count - 1;
@@ -202,9 +202,9 @@ namespace Notatnik
         /// <param name="e"></param>
         private void MyPreview(object sender, ExecutedRoutedEventArgs e)
         {
-            oknoPodgladu = new PodgladWindow();
+            INotatka notatka = lbxData.SelectedItem as INotatka;
+            oknoPodgladu = new PodgladWindow(data, notatka);
             oknoPodgladu.Owner = this;
-            oknoPodgladu.AktywnaNotatka = lbxData.SelectedItem as INotatka;
             oknoPodgladu.Show();
         }
 
